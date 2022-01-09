@@ -1,7 +1,7 @@
 package engine;
 
 public class Board {
-    Square[][] board;
+    static Piece[][] board;
 
     public Board(){
         this.reset();
@@ -9,5 +9,13 @@ public class Board {
 
     private void reset(){
 
+    }
+
+    public Piece getPieceOnPosition(int x, int y){
+        return board[x][y];
+    }
+
+    public Object getPieceOnPosition() {
+        return null;
     }
 }
