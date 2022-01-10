@@ -11,11 +11,8 @@ public class Board {
 
     }
 
-    public Piece getPieceOnPosition(int x, int y){
-        return board[x][y];
+    public Piece getPieceOnPosition(BoardPos2D boardPos2D){
+        return board[boardPos2D.getX()][boardPos2D.getY()];
     }
 
-    public Object getPieceOnPosition() {
-        return null;
-    }
 }

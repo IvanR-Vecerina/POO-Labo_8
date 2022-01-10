@@ -1,6 +1,7 @@
 package engine;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Knight extends Piece{
@@ -15,32 +16,39 @@ public class Knight extends Piece{
             { 2, 1}
     };
 
-    Knight(final int[] piecePosition, final Alliance pieceTeam) {
-        super(piecePosition, pieceTeam);
+    Knight(final BoardPos2D piecePosition, final TeamColour pieceTeam) {
+        super(PieceType.KNIGHT, piecePosition, pieceTeam);
+    }
+
+    @Override
+    public boolean isPieceLegalMove(Board board, BoardPos2D destination) {
+        for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
+            if (m_piecePosition.offsetBy(currentCandidate).equals(destination))
+                return true;
+        }
+        return false;
     }
 
 
     @Override
-    public List<int[]> calculateLegalMoves(Board board) {
-        int[] candidateDestPosition = new int[2];
-        final List<int[]> legalMoves = new ArrayList<>();
+    public List<Move> calculateLegalMoves(Board board) {
+        BoardPos2D candidateDestPosition;
+        final List<Move> legalMoves = new ArrayList<>();
 
         for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
 
-            candidateDestPosition[0] = m_piecePosition[0] + currentCandidate[0];
-            candidateDestPosition[1] = m_piecePosition[1] + currentCandidate[1];
+            candidateDestPosition = m_piecePosition.offsetBy(currentCandidate);
 
-            if (((candidateDestPosition[0] >= 0) && (candidateDestPosition[0] < 8)) &&
-                    ((candidateDestPosition[1] >= 0) && (candidateDestPosition[1] < 8)))
+            if (candidateDestPosition.isValidPos())
             {
-                if(board.getPieceOnPosition() == null) {
-                    legalMoves.add(new int[2]);
+                if(board.getPieceOnPosition(candidateDestPosition) == null) {
+                    legalMoves.add(new Move(board, this, candidateDestPosition));
                 } else {
                     //final Piece =
                 }
             }
         }
 
-        return null;
+        return Collections.unmodifiableList(List.copyOf(legalMoves));
     }
 }

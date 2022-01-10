@@ -1,6 +1,6 @@
 package engine;
 
-public enum Alliance {
+public enum TeamColour {
     WHITE,
     BLACK
 }

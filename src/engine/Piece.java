@@ -3,15 +3,22 @@ package engine;
 import java.util.List;
 
 public abstract class Piece {
-    protected final int[]    m_piecePosition;
-    protected final Alliance m_pieceAlliance;
+    protected final BoardPos2D m_piecePosition;
+    protected final TeamColour m_pieceColour;
+    protected final PieceType  m_pieceType;
 
-    Piece(final int[] piecePosition, final Alliance pieceAlliance) {
+    protected boolean hasMoved;
+
+    Piece(final PieceType pieceType,final BoardPos2D piecePosition, final TeamColour pieceColour) {
         m_piecePosition = piecePosition;
-        m_pieceAlliance = pieceAlliance;
+        m_pieceColour   = pieceColour;
+        m_pieceType     = pieceType;
+        hasMoved = false;
     }
 
-    public abstract List<int[]> calculateLegalMoves(final Board board);
+    public abstract boolean isPieceLegalMove(Board board, BoardPos2D destination);
+
+    public abstract List<Move> calculateLegalMoves(final Board board);
 
     // Getters
     // Get next turn magic moves
