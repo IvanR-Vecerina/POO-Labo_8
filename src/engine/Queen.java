@@ -9,7 +9,7 @@ public class Queen extends Piece{
     }
 
     @Override
-    public boolean canMove(int x1, int x2, int y1, int y2) {
-        return false;
+    public boolean canMove(int fromX, int fromY, int toX, int toY) {
+        return true;
     }
 }

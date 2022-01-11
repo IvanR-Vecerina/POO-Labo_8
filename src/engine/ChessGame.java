@@ -19,6 +19,9 @@ public class ChessGame implements ChessController {
     @Override
     public boolean move(int fromX, int fromY, int toX, int toY) {
         //System.out.println(String.format("%d, %d to %d, %d", fromX, fromY, toX, toY));
+
+        board.tryMove(fromX, fromY, toX, toY);
+
         return false;
     }
 
