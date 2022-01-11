@@ -10,6 +10,10 @@ public class Rook extends Piece{
 
     @Override
     public boolean canMove(int fromX, int fromY, int toX, int toY) {
-        return true;
+        if((fromX - toX == 0) || (fromY - toY == 0)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
