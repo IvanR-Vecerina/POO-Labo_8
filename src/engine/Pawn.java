@@ -4,28 +4,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Knight extends Piece{
+public class Pawn extends Piece {
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
-            {-2,-1},
-            {-2, 1},
-            {-1,-2},
-            {-1, 2},
-            { 1,-2},
-            { 1, 2},
-            { 2,-1},
-            { 2, 1}
+            {-1, 1},
+            { 0, 1},
+            { 0, 2},
+            { 1, 1}
     };
 
-    Knight(final BoardPos2D piecePosition, final TeamColour pieceTeam) {
+    Pawn(final BoardPos2D piecePosition, final TeamColour pieceTeam) {
         super(PieceType.KNIGHT, piecePosition, pieceTeam);
     }
 
     @Override
     public Move isPieceLegalMove(Board board, BoardPos2D destination) {
-        for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
-            if (m_piecePosition.offsetBy(currentCandidate).equals(destination))
-                return null;
-        }
+        if (!this.hasMoved && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2])))
+            return new MoveEnPassant(board, this, destination);
+
+        if (board.getPieceOnPosition(destination) != null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])))
+            return new MoveEnPassant(board, this, destination);
+
         return null;
     }
 

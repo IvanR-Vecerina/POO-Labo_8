@@ -7,7 +7,7 @@ public class Game implements chess.ChessController
     // Board
     // 2 Pieces sets
     // Game variables
-
+    // Move m = new Move();
 
     /**
      * Démarre la logique (contrôleur) du programme.
@@ -33,6 +33,14 @@ public class Game implements chess.ChessController
     @Override
     public boolean move(int fromX, int fromY, int toX, int toY) {
         System.out.println("(" + fromX + ", " + fromY + ") ---> (" + toX + ", " + toY + ")");
+
+        // Checks préalables
+
+        // Piece.CheckMove -> Move
+
+        // Move.execute
+
+
         return false;
     }
 

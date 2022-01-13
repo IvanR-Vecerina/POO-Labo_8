@@ -1,6 +1,10 @@
 package engine;
 
 public enum TeamColour {
-    WHITE,
-    BLACK
+    WHITE {
+        final int pawnDirection = 1;
+    },
+    BLACK {
+        final int pawnDirection = -1;
+    }
 }

@@ -11,6 +11,10 @@ public class Move {
         this.destination = destination;
     }
 
+    public void execute(Board board, Piece pieceToMove, BoardPos2D destination) {
+
+    }
+
     public BoardPos2D getDestination() {
         return destination;
     }

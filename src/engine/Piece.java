@@ -7,6 +7,7 @@ public abstract class Piece {
     protected final TeamColour m_pieceColour;
     protected final PieceType  m_pieceType;
 
+    // check hasMoved location
     protected boolean hasMoved;
 
     Piece(final PieceType pieceType,final BoardPos2D piecePosition, final TeamColour pieceColour) {
@@ -16,7 +17,7 @@ public abstract class Piece {
         hasMoved = false;
     }
 
-    public abstract boolean isPieceLegalMove(Board board, BoardPos2D destination);
+    public abstract Move isPieceLegalMove(Board board, BoardPos2D destination);
 
     public abstract List<Move> calculateLegalMoves(final Board board);
 
