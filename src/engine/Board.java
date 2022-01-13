@@ -13,7 +13,19 @@ public class Board {
     LinkedList<Piece> blackPieces = new LinkedList<>();
 
     public Board(ChessView view){
-        whitePieces.add(new King(PieceType.KING, new BoardPos2D(4, 0), PlayerColor.BLACK));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Queen(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+
+        for(int i = 0; i < 8; i++){
+            whitePieces.add(new King(new BoardPos2D(i, 1), PlayerColor.WHITE));
+        }
+
         this.reset();
     }
 

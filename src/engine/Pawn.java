@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Pawn extends Piece {
+
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
             {-1, 1},
             { 0, 1},
@@ -16,7 +17,7 @@ public class Pawn extends Piece {
     };
 
     Pawn(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
-        super(PieceType.KNIGHT, piecePosition, pieceTeam);
+        super(piecePosition, pieceTeam);
     }
 
     @Override
@@ -51,5 +52,10 @@ public class Pawn extends Piece {
         }
 
         return Collections.unmodifiableList(List.copyOf(legalMoves));
+    }
+
+    @Override
+    public PieceType getPieceName() {
+        return PieceType.PAWN;
     }
 }

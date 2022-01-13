@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Knight extends Piece{
+
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
             {-2,-1},
             {-2, 1},
@@ -20,7 +21,7 @@ public class Knight extends Piece{
     };
 
     Knight(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
-        super(PieceType.KNIGHT, piecePosition, pieceTeam);
+        super(piecePosition, pieceTeam);
     }
 
     @Override
@@ -53,5 +54,10 @@ public class Knight extends Piece{
         }
 
         return Collections.unmodifiableList(List.copyOf(legalMoves));
+    }
+
+    @Override
+    public PieceType getPieceName() {
+        return PieceType.KNIGHT;
     }
 }

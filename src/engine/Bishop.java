@@ -6,8 +6,8 @@ import chess.PlayerColor;
 import java.util.List;
 
 public class Bishop extends Piece{
-    Bishop(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
-        super(PieceType.BISHOP, piecePosition, pieceColour);
+    Bishop(BoardPos2D piecePosition, PlayerColor pieceColour) {
+        super(piecePosition, pieceColour);
     }
 
     @Override
@@ -18,5 +18,10 @@ public class Bishop extends Piece{
     @Override
     public List<Move> calculateLegalMoves(Board board) {
         return null;
+    }
+
+    @Override
+    public PieceType getPieceName() {
+        return PieceType.BISHOP;
     }
 }

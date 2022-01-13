@@ -7,8 +7,8 @@ import java.util.List;
 
 public class King extends Piece{
 
-    public King(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
-        super(pieceType, piecePosition, pieceColour);
+    public King(BoardPos2D piecePosition, PlayerColor pieceColour) {
+        super(piecePosition, pieceColour);
     }
 
     @Override
@@ -19,5 +19,10 @@ public class King extends Piece{
     @Override
     public List<Move> calculateLegalMoves(Board board) {
         return null;
+    }
+
+    @Override
+    public PieceType getPieceName() {
+        return PieceType.KING;
     }
 }

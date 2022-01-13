@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Queen extends Piece{
 
-    Queen(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
-        super(PieceType.QUEEN, piecePosition, pieceColour);
+    Queen(BoardPos2D piecePosition, PlayerColor pieceColour) {
+        super(piecePosition, pieceColour);
     }
 
     @Override
@@ -19,5 +19,10 @@ public class Queen extends Piece{
     @Override
     public List<Move> calculateLegalMoves(Board board) {
         return null;
+    }
+
+    @Override
+    public PieceType getPieceName() {
+        return PieceType.QUEEN;
     }
 }

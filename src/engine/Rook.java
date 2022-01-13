@@ -8,7 +8,7 @@ import java.util.List;
 public class Rook extends Piece{
 
     Rook(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
-        super(PieceType.ROOK, piecePosition, pieceColour);
+        super(piecePosition, pieceColour);
     }
 
     @Override
@@ -18,6 +18,11 @@ public class Rook extends Piece{
 
     @Override
     public List<Move> calculateLegalMoves(Board board) {
+        return null;
+    }
+
+    @Override
+    public PieceType getPieceName() {
         return null;
     }
 }
