@@ -1,5 +1,8 @@
 package engine;
 
+import chess.PieceType;
+import chess.PlayerColor;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +19,7 @@ public class Knight extends Piece{
             { 2, 1}
     };
 
-    Knight(final BoardPos2D piecePosition, final TeamColour pieceTeam) {
+    Knight(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
         super(PieceType.KNIGHT, piecePosition, pieceTeam);
     }
 

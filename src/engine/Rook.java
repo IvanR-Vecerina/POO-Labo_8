@@ -3,17 +3,21 @@ package engine;
 import chess.PieceType;
 import chess.PlayerColor;
 
+import java.util.List;
+
 public class Rook extends Piece{
-    public Rook(PlayerColor colour) {
-        super(colour, PieceType.ROOK);
+
+    Rook(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
+        super(PieceType.ROOK, piecePosition, pieceColour);
     }
 
     @Override
-    public boolean canMove(int fromX, int fromY, int toX, int toY) {
-        if((fromX - toX == 0) || (fromY - toY == 0)){
-            return true;
-        }else{
-            return false;
-        }
+    public Move isPieceLegalMove(Board board, BoardPos2D destination) {
+        return null;
+    }
+
+    @Override
+    public List<Move> calculateLegalMoves(Board board) {
+        return null;
     }
 }

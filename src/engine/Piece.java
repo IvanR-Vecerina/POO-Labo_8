@@ -1,16 +1,19 @@
 package engine;
 
+import chess.PieceType;
+import chess.PlayerColor;
+
 import java.util.List;
 
 public abstract class Piece {
-    protected final BoardPos2D m_piecePosition;
-    protected final TeamColour m_pieceColour;
-    protected final PieceType  m_pieceType;
+    protected final BoardPos2D  m_piecePosition;
+    protected final PlayerColor m_pieceColour;
+    protected final PieceType   m_pieceType;
 
     // check hasMoved location
     protected boolean hasMoved;
 
-    Piece(final PieceType pieceType,final BoardPos2D piecePosition, final TeamColour pieceColour) {
+    Piece(final PieceType pieceType,final BoardPos2D piecePosition, final PlayerColor pieceColour) {
         m_piecePosition = piecePosition;
         m_pieceColour   = pieceColour;
         m_pieceType     = pieceType;

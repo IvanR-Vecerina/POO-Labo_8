@@ -3,13 +3,21 @@ package engine;
 import chess.PieceType;
 import chess.PlayerColor;
 
+import java.util.List;
+
 public class Queen extends Piece{
-    public Queen(PlayerColor colour) {
-        super(colour, PieceType.QUEEN);
+
+    Queen(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
+        super(PieceType.QUEEN, piecePosition, pieceColour);
     }
 
     @Override
-    public boolean canMove(int fromX, int fromY, int toX, int toY) {
-        return true;
+    public Move isPieceLegalMove(Board board, BoardPos2D destination) {
+        return null;
+    }
+
+    @Override
+    public List<Move> calculateLegalMoves(Board board) {
+        return null;
     }
 }

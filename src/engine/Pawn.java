@@ -1,5 +1,8 @@
 package engine;
 
+import chess.PieceType;
+import chess.PlayerColor;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +15,7 @@ public class Pawn extends Piece {
             { 1, 1}
     };
 
-    Pawn(final BoardPos2D piecePosition, final TeamColour pieceTeam) {
+    Pawn(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
         super(PieceType.KNIGHT, piecePosition, pieceTeam);
     }
 
