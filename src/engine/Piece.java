@@ -24,6 +24,18 @@ public abstract class Piece {
 
     public abstract PieceType getPieceName();
 
+    public PlayerColor getColor(){
+        return m_pieceColour;
+    }
+
+    public int getX(){
+        return m_piecePosition.getX();
+    }
+
+    public int getY(){
+        return m_piecePosition.getY();
+    }
+
     // Getters
     // Get next turn magic moves
     // Get next turn legal moves
