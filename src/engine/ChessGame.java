@@ -20,7 +20,7 @@ public class ChessGame implements ChessController {
     public boolean move(int fromX, int fromY, int toX, int toY) {
         //System.out.println(String.format("%d, %d to %d, %d", fromX, fromY, toX, toY));
 
-        //board.tryMove(fromX, fromY, toX, toY);
+        board.tryMove(new BoardPos2D(fromX, fromY), new BoardPos2D(toX, toY));
 
         return false;
     }

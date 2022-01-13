@@ -11,26 +11,30 @@ public class Board {
     Piece[][] board = new Piece[8][8];
     LinkedList<Piece> whitePieces = new LinkedList<>();
     LinkedList<Piece> blackPieces = new LinkedList<>();
+    PlayerColor playerTurn;
     ChessView view;
 
     public Board(ChessView view){
 
         this.view = view;
 
+        playerTurn = PlayerColor.WHITE;
+
         initOneColorPieces(whitePieces, PlayerColor.BLACK);
         initOneColorPieces(blackPieces, PlayerColor.WHITE);
 
-        /*
-        int tmp1, tmp2;
-        for(int i = 0; i < 2; ++i){
-            for(int j = 0; j < 16; ++j){
-                tmp1 = j % 8;
-                tmp2 = j / 8 + i * 6;
-                view.putPiece(board[tmp1][tmp2].getPieceName(), board[tmp1][tmp2].getColor(), tmp1, tmp2);
-            }
-        }*/
-
         this.reset();
+    }
+
+    public boolean tryMove(BoardPos2D from, BoardPos2D to){
+
+        if(board[from.getX()][from.getY()] != null && board[from.getX()][from.getY()].getColor() == playerTurn){
+            if(board[to.getX()][to.getY()] == null ||
+               board[to.getX()][to.getY()].getColor() != board[to.getX()][to.getY()].getColor()){
+
+            }
+        }
+        return false;
     }
 
     private void reset(){
