@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Rook extends Piece{
 
-    Rook(PieceType pieceType, BoardPos2D piecePosition, PlayerColor pieceColour) {
+    Rook(BoardPos2D piecePosition, PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
     }
 
@@ -23,6 +23,6 @@ public class Rook extends Piece{
 
     @Override
     public PieceType getPieceName() {
-        return null;
+        return PieceType.ROOK;
     }
 }

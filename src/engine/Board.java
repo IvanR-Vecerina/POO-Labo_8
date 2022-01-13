@@ -15,12 +15,12 @@ public class Board {
     public Board(ChessView view){
         whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
         whitePieces.add(new Queen(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
-        whitePieces.add(new King(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Bishop(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Bishop(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Knight(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Knight(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Rook(new BoardPos2D(4, 0), PlayerColor.WHITE));
+        whitePieces.add(new Rook(new BoardPos2D(4, 0), PlayerColor.WHITE));
 
         for(int i = 0; i < 8; i++){
             whitePieces.add(new King(new BoardPos2D(i, 1), PlayerColor.WHITE));
