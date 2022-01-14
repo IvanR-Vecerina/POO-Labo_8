@@ -1,22 +1,22 @@
-package engine;
+package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
+import engine.Board;
+import engine.BoardPos2D;
+import engine.Move;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static engine.pieces.PieceUtils.*;
+
 public class Rook extends Piece{
 
-    private final static int[][] CANDIDATE_MOVE_VECTOR_OFFSETS = {
-            {-1, 0},
-            { 0,-1},
-            { 1, 0},
-            { 0, 1}
-    };
+    private final static int[][] CANDIDATE_MOVE_VECTOR_OFFSETS = {U, D, L, R};
 
-    Rook(BoardPos2D piecePosition, PlayerColor pieceColour) {
+    public Rook(BoardPos2D piecePosition, PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
     }
 
@@ -26,19 +26,14 @@ public class Rook extends Piece{
         int deltaY = destination.getY() - m_piecePosition.getY();
 
         if (deltaX == 0 || deltaY == 0){
-            int[] vector = {deltaX/Math.abs(deltaX), deltaY/Math.abs(deltaY)};
+            if (isPathClear(board, m_piecePosition, destination, deltaX, deltaY)){
+                Piece tmp = board.getPieceOnPosition(destination);
 
-            BoardPos2D posToTest = m_piecePosition.offsetBy(vector);
-
-            while (posToTest.isValidPos()){
-                if (posToTest.equals(destination)){
-                    return new Move(board, this, destination);
+                if (tmp == null) {
+                    new Move(board, this, destination);
+                } else if (tmp.getColor() != m_pieceColour) {
+                    new Move(board, this, destination);
                 }
-                if (board.getPieceOnPosition(posToTest) != null){
-                    break;
-                }
-
-                posToTest = posToTest.offsetBy(vector);
             }
         }
         return null;

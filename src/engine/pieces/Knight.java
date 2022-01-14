@@ -1,33 +1,38 @@
-package engine;
+package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
+import engine.Board;
+import engine.BoardPos2D;
+import engine.Move;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Pawn extends Piece {
+public class Knight extends Piece{
 
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
-            {-1, 1},
-            { 0, 1},
-            { 0, 2},
-            { 1, 1}
+            {-2,-1},
+            {-2, 1},
+            {-1,-2},
+            {-1, 2},
+            { 1,-2},
+            { 1, 2},
+            { 2,-1},
+            { 2, 1}
     };
 
-    Pawn(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
+    public Knight(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
         super(piecePosition, pieceTeam);
     }
 
     @Override
     public Move isPieceLegalMove(Board board, BoardPos2D destination) {
-        if (!this.hasMoved && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2])))
-            return new MoveEnPassant(board, this, destination);
-
-        if (board.getPieceOnPosition(destination) != null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])))
-            return new MoveEnPassant(board, this, destination);
-
+        for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
+            if (m_piecePosition.offsetBy(currentCandidate).equals(destination))
+                return null;
+        }
         return null;
     }
 
@@ -56,6 +61,6 @@ public class Pawn extends Piece {
 
     @Override
     public PieceType getPieceName() {
-        return PieceType.PAWN;
+        return PieceType.KNIGHT;
     }
 }

@@ -1,7 +1,10 @@
-package engine;
+package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
+import engine.Board;
+import engine.BoardPos2D;
+import engine.Move;
 
 import java.util.List;
 

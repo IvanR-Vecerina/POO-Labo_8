@@ -1,22 +1,22 @@
-package engine;
+package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
+import engine.Board;
+import engine.BoardPos2D;
+import engine.Move;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Bishop extends Piece{
+import static engine.pieces.PieceUtils.*;
 
-    private final static int[][] CANDIDATE_MOVE_VECTOR_OFFSETS = {
-            {-1,-1},
-            {-1, 1},
-            { 1,-1},
-            { 1, 1}
-    };
+public class Queen extends Piece{
 
-    Bishop(BoardPos2D piecePosition, PlayerColor pieceColour) {
+    private final static int[][] CANDIDATE_MOVE_VECTOR_OFFSETS = {U, D, L, R, DR, DL, UR, UL};
+
+    public Queen(BoardPos2D piecePosition, PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
     }
 
@@ -25,20 +25,15 @@ public class Bishop extends Piece{
         int deltaX = destination.getX() - m_piecePosition.getX();
         int deltaY = destination.getY() - m_piecePosition.getY();
 
-        if (Math.abs(deltaX) == Math.abs(deltaY)){
-            int[] vector = {deltaX/Math.abs(deltaX), deltaY/Math.abs(deltaY)};
+        if (Math.abs(deltaX) == Math.abs(deltaY) || deltaX == 0 || deltaY == 0){
+            if (isPathClear(board, m_piecePosition, destination, deltaX, deltaY)){
+                Piece tmp = board.getPieceOnPosition(destination);
 
-            BoardPos2D posToTest = m_piecePosition.offsetBy(vector);
-
-            while (posToTest.isValidPos()){
-                if (posToTest.equals(destination)){
-                    return new Move(board, this, destination);
+                if (tmp == null) {
+                    new Move(board, this, destination);
+                } else if (tmp.getColor() != m_pieceColour) {
+                    new Move(board, this, destination);
                 }
-                if (board.getPieceOnPosition(posToTest) != null){
-                    break;
-                }
-
-                posToTest = posToTest.offsetBy(vector);
             }
         }
         return null;
@@ -71,6 +66,6 @@ public class Bishop extends Piece{
 
     @Override
     public PieceType getPieceName() {
-        return PieceType.BISHOP;
+        return PieceType.QUEEN;
     }
 }

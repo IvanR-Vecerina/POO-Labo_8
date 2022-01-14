@@ -1,12 +1,15 @@
-package engine;
+package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
+import engine.Board;
+import engine.BoardPos2D;
+import engine.Move;
 
 import java.util.List;
 
 public abstract class Piece {
-    protected final BoardPos2D  m_piecePosition;
+    protected final BoardPos2D m_piecePosition;
     protected final PlayerColor m_pieceColour;
 
     // check hasMoved location

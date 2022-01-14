@@ -1,11 +1,10 @@
 package engine;
 
 import chess.ChessView;
-import chess.PieceType;
 import chess.PlayerColor;
+import engine.pieces.*;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class Board {
     Piece[][] board = new Piece[8][8];

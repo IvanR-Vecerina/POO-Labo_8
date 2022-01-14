@@ -1,8 +1,10 @@
 package engine;
 
+import engine.pieces.Piece;
+
 public class Move {
     protected final Board      board;
-    protected final Piece      pieceToMove;
+    protected final Piece pieceToMove;
     protected final BoardPos2D destination;
 
     public Move(Board board, Piece pieceToMove, BoardPos2D destination) {
