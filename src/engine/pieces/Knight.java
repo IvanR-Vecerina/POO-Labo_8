@@ -4,7 +4,7 @@ import chess.PieceType;
 import chess.PlayerColor;
 import engine.Board;
 import engine.BoardPos2D;
-import engine.Move;
+import engine.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Collections;

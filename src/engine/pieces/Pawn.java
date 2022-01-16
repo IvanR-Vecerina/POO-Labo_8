@@ -4,14 +4,14 @@ import chess.PieceType;
 import chess.PlayerColor;
 import engine.Board;
 import engine.BoardPos2D;
-import engine.Move;
-import engine.MoveEnPassant;
+import engine.moves.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Pawn extends Piece {
+    private final int pawnDirection;
 
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
             {-1, 1},
@@ -22,15 +22,28 @@ public class Pawn extends Piece {
 
     public Pawn(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
         super(piecePosition, pieceTeam);
+        pawnDirection = pieceTeam == PlayerColor.WHITE ? 1 : -1;
     }
 
     @Override
     public Move isPieceLegalMove(Board board, BoardPos2D destination) {
-        if (!this.hasMoved && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2])))
-            return new MoveEnPassant(board, this, destination);
+        Piece pieceOnDestination = board.getPieceOnPosition(destination);
 
-        if (board.getPieceOnPosition(destination) != null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])))
-            return new MoveEnPassant(board, this, destination);
+        if (pieceOnDestination == null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])))
+            return new Move(board, this, destination);
+
+        if (!this.hasMoved && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2])) && board.getPieceOnPosition(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])) == null)
+            return new PawnJump(board, this, destination, pawnDirection);
+
+        if (destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[0])) ||
+                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[3])))
+        {
+            if (pieceOnDestination != null)
+                return new Attack(board, this, destination, pieceOnDestination);
+
+            if (destination == board.getPositionEnPassant())
+                return new EnPassant(board, this, destination, board.getPieceOnPosition(destination.getX(), m_piecePosition.getY()));
+        }
 
         return null;
     }
@@ -61,5 +74,9 @@ public class Pawn extends Piece {
     @Override
     public PieceType getPieceName() {
         return PieceType.PAWN;
+    }
+
+    public int getPawnDirection() {
+        return pawnDirection;
     }
 }

@@ -7,13 +7,21 @@ import engine.pieces.*;
 import java.util.LinkedList;
 
 public class Board {
-    Piece[][] board = new Piece[8][8];
-    LinkedList<Piece> whitePieces = new LinkedList<>();
-    LinkedList<Piece> blackPieces = new LinkedList<>();
-    PlayerColor playerTurn;
-    ChessView view;
+    private final Piece[][] board;
+    private final ChessView view;
+
+    private LinkedList<Piece> whitePieces;
+    private LinkedList<Piece> blackPieces;
+    private PlayerColor playerTurn;
+
+    private BoardPos2D positionEnPassant;
 
     public Board(ChessView view){
+
+        board = new Piece[8][8];
+        whitePieces = new LinkedList<>();
+        blackPieces = new LinkedList<>();
+
 
         this.view = view;
 
@@ -27,12 +35,15 @@ public class Board {
 
     public boolean tryMove(BoardPos2D from, BoardPos2D to){
 
-        if(board[from.getX()][from.getY()] != null && board[from.getX()][from.getY()].getColor() == playerTurn){
-            if(board[to.getX()][to.getY()] == null ||
-               board[to.getX()][to.getY()].getColor() != board[to.getX()][to.getY()].getColor()){
+//        if(board[from.getX()][from.getY()] != null && board[from.getX()][from.getY()].getColor() == playerTurn){
+//            if(board[to.getX()][to.getY()] == null ||
+//               board[to.getX()][to.getY()].getColor() != board[to.getX()][to.getY()].getColor()){
+//
+//            }
+//        }
+//        return false;
+        getPieceOnPosition(from).isPieceLegalMove(this, to).execute();
 
-            }
-        }
         return false;
     }
 
@@ -42,6 +53,10 @@ public class Board {
 
     public Piece getPieceOnPosition(BoardPos2D boardPos2D){
         return board[boardPos2D.getX()][boardPos2D.getY()];
+    }
+
+    public Piece getPieceOnPosition(int x, int y){
+        return board[x][y];
     }
 
     private void initOneColorPieces(LinkedList<Piece> list, PlayerColor color){
@@ -75,4 +90,44 @@ public class Board {
         }
     }
 
+    public void movePiece(BoardPos2D from, BoardPos2D to) {
+        view.putPiece(getPieceOnPosition(from).getPieceName(), playerTurn, to.getX(), to.getY());
+        view.removePiece(from.getX(), from.getY());
+
+        board[to.getX()][to.getY()] = board[from.getX()][from.getY()];
+        board[from.getX()][from.getY()] = null;
+    }
+
+    public void removeEnPassantPawn() {
+        if (positionEnPassant.getY() == 2)
+            view.removePiece(positionEnPassant.getX(), 3);
+
+        if (positionEnPassant.getY() == 5)
+            view.removePiece(positionEnPassant.getX(), 4);
+    }
+
+    public void killPiece(Piece piece) {
+        if (piece.getColor() == PlayerColor.WHITE) {
+            whitePieces.remove(piece);
+        }
+        if (piece.getColor() == PlayerColor.BLACK) {
+            blackPieces.remove(piece);
+        }
+    }
+
+    public PlayerColor getPlayerTurn() {
+        return playerTurn;
+    }
+
+    public void setPositionEnPassant(BoardPos2D positionEnPassant) {
+        this.positionEnPassant = positionEnPassant;
+    }
+
+    public BoardPos2D getPositionEnPassant() {
+        return positionEnPassant;
+    }
+
+    public void removeEnPassant() {
+        setPositionEnPassant(null);
+    }
 }

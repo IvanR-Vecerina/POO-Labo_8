@@ -4,7 +4,7 @@ import chess.PieceType;
 import chess.PlayerColor;
 import engine.Board;
 import engine.BoardPos2D;
-import engine.Move;
+import engine.moves.Move;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +14,7 @@ import static engine.pieces.PieceUtils.*;
 
 public class Rook extends Piece{
 
-    private final static int[][] CANDIDATE_MOVE_VECTOR_OFFSETS = {U, D, L, R};
+    private final static int[][] CANDIDATE_MOVE_VECTORS_OFFSETS = {U, D, L, R};
 
     public Rook(BoardPos2D piecePosition, PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
@@ -44,7 +44,7 @@ public class Rook extends Piece{
         BoardPos2D candidateDestPosition;
         final List<Move> legalMoves = new ArrayList<>();
 
-        for (final int[] currentCandidate : CANDIDATE_MOVE_VECTOR_OFFSETS){
+        for (final int[] currentCandidate : CANDIDATE_MOVE_VECTORS_OFFSETS){
             candidateDestPosition = m_piecePosition.offsetBy(currentCandidate);
 
             while (candidateDestPosition.isValidPos()){

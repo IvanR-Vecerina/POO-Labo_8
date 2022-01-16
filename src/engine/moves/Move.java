@@ -1,9 +1,11 @@
-package engine;
+package engine.moves;
 
+import engine.Board;
+import engine.BoardPos2D;
 import engine.pieces.Piece;
 
 public class Move {
-    protected final Board      board;
+    protected final Board board;
     protected final Piece pieceToMove;
     protected final BoardPos2D destination;
 
@@ -13,8 +15,8 @@ public class Move {
         this.destination = destination;
     }
 
-    public void execute(Board board, Piece pieceToMove, BoardPos2D destination) {
-
+    public void execute() {
+        board.movePiece(pieceToMove.getPosition(), destination);
     }
 
     public BoardPos2D getDestination() {
