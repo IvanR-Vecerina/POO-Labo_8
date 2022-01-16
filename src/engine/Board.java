@@ -91,7 +91,7 @@ public class Board {
     }
 
     public void movePiece(BoardPos2D from, BoardPos2D to) {
-        view.putPiece(getPieceOnPosition(from).getPieceName(), playerTurn, to.getX(), to.getY());
+        view.putPiece(getPieceOnPosition(from).getPieceName(), getPieceOnPosition(from).getColor(), to.getX(), to.getY());
         view.removePiece(from.getX(), from.getY());
 
         board[to.getX()][to.getY()] = board[from.getX()][from.getY()];

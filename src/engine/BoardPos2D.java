@@ -37,6 +37,12 @@ public class BoardPos2D {
         return new BoardPos2D(this.m_x + offset2D[0], this.m_y + offset2D[1]);
     }
 
+    public BoardPos2D offsetBy(final int[] offset2D, int factor){
+        assert offset2D.length == 2;
+
+        return new BoardPos2D(this.m_x + factor * offset2D[0], this.m_y + factor * offset2D[1]);
+    }
+
     public boolean isValidPos() {
         return ((0 <= m_x && m_x < 8) && (0 <= m_y && m_y < 8));
     }

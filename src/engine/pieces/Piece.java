@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class Piece {
-    protected final BoardPos2D m_piecePosition;
+    protected BoardPos2D m_piecePosition;
     protected final PlayerColor m_pieceColour;
 
     // check hasMoved location
@@ -27,6 +27,10 @@ public abstract class Piece {
     public abstract List<Move> calculateLegalMoves(final Board board);
 
     public abstract PieceType getPieceName();
+
+    public void setPiecePosition(BoardPos2D m_piecePosition) {
+        this.m_piecePosition = m_piecePosition;
+    }
 
     public PlayerColor getColor(){
         return m_pieceColour;

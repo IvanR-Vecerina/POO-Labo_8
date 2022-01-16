@@ -14,7 +14,7 @@ public class PawnJump extends Move {
 
     @Override
     public void execute() {
-        super.execute();
         board.setPositionEnPassant(pieceToMove.getPosition().offsetBy(new int[]{0, direction}));
+        super.execute();
     }
 }

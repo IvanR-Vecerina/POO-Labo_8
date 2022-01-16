@@ -17,6 +17,7 @@ public class Move {
 
     public void execute() {
         board.movePiece(pieceToMove.getPosition(), destination);
+        pieceToMove.setPiecePosition(destination);
     }
 
     public BoardPos2D getDestination() {

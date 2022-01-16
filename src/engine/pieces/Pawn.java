@@ -29,19 +29,21 @@ public class Pawn extends Piece {
     public Move isPieceLegalMove(Board board, BoardPos2D destination) {
         Piece pieceOnDestination = board.getPieceOnPosition(destination);
 
-        if (pieceOnDestination == null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])))
+        if (pieceOnDestination == null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)))
             return new Move(board, this, destination);
 
-        if (!this.hasMoved && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2])) && board.getPieceOnPosition(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1])) == null)
+        if (!this.hasMoved &&
+                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2], pawnDirection)) &&
+                board.getPieceOnPosition(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)) == null)
             return new PawnJump(board, this, destination, pawnDirection);
 
-        if (destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[0])) ||
-                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[3])))
+        if (destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[0], pawnDirection)) ||
+                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[3], pawnDirection)))
         {
             if (pieceOnDestination != null)
                 return new Attack(board, this, destination, pieceOnDestination);
 
-            if (destination == board.getPositionEnPassant())
+            if (destination.equals(board.getPositionEnPassant()))
                 return new EnPassant(board, this, destination, board.getPieceOnPosition(destination.getX(), m_piecePosition.getY()));
         }
 
