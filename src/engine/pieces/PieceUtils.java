@@ -16,7 +16,7 @@ public class PieceUtils {
     public static boolean isPathClear(Board board, BoardPos2D startPosition, BoardPos2D endPosition, int dx, int dy){
         BoardPos2D tmpPosition = startPosition;
 
-        int[] vector = {dx/Math.abs(dx), dy/Math.abs(dy)};
+        int[] vector = { dx == 0 ? 0 : dx/Math.abs(dx), dy == 0 ? 0 : dy/Math.abs(dy)};
 
         do {
             tmpPosition = tmpPosition.offsetBy(vector);

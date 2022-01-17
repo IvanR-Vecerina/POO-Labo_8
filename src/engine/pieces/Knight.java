@@ -4,6 +4,7 @@ import chess.PieceType;
 import chess.PlayerColor;
 import engine.Board;
 import engine.BoardPos2D;
+import engine.moves.Attack;
 import engine.moves.Move;
 
 import java.util.ArrayList;
@@ -29,9 +30,15 @@ public class Knight extends Piece{
 
     @Override
     public Move isPieceLegalMove(Board board, BoardPos2D destination) {
+        Piece pieceOnDestination = board.getPieceOnPosition(destination);
+
         for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
             if (m_piecePosition.offsetBy(currentCandidate).equals(destination))
-                return null;
+                if (pieceOnDestination == null) {
+                    return new Move(board, this, destination);
+                } else if (pieceOnDestination.getColor() != m_pieceColour) {
+                    return new Attack(board, this, destination, pieceOnDestination);
+                }
         }
         return null;
     }

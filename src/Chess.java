@@ -1,11 +1,11 @@
 import chess.ChessController;
 import chess.ChessView;
 import chess.views.gui.GUIView;
-import engine.Game;
+import engine.AltChessGame;
 
 public class Chess {
     public static void main(String[] args) {
-        ChessController chessController = new Game();
+        ChessController chessController = new AltChessGame();
 
         ChessView view = new GUIView(chessController);
 

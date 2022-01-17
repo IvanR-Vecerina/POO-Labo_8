@@ -4,6 +4,7 @@ import chess.PieceType;
 import chess.PlayerColor;
 import engine.Board;
 import engine.BoardPos2D;
+import engine.moves.Attack;
 import engine.moves.Move;
 
 import java.util.ArrayList;
@@ -30,9 +31,9 @@ public class Bishop extends Piece{
                 Piece tmp = board.getPieceOnPosition(destination);
 
                 if (tmp == null) {
-                    new Move(board, this, destination);
+                    return new Move(board, this, destination);
                 } else if (tmp.getColor() != m_pieceColour) {
-                    new Move(board, this, destination);
+                    return new Attack(board, this, destination, tmp);
                 }
             }
         }
