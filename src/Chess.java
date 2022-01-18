@@ -5,11 +5,13 @@ import engine.AltChessGame;
 
 public class Chess {
     public static void main(String[] args) {
-        ChessController chessController = new AltChessGame();
-
-        ChessView view = new GUIView(chessController);
-
-        chessController.start(view);
+        // 1. Création du contrôleur pour gérer le jeu d’échec
+        ChessController controller = new AltChessGame(); // Instancier un ChessController
+        // 2. Création de la vue
+        ChessView view = new GUIView(controller); // mode GUI
+        // = new ConsoleView(controller); // mode Console
+        // 3 . Lancement du programme.
+        controller.start(view);
     }
 
 }

@@ -1,22 +1,22 @@
 package engine.moves;
 
-import engine.Board;
+import engine.AltChessGame;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
 public class Move {
-    protected final Board board;
+    protected final AltChessGame gameState;
     protected final Piece pieceToMove;
     protected final BoardPos2D destination;
 
-    public Move(Board board, Piece pieceToMove, BoardPos2D destination) {
-        this.board = board;
+    public Move(AltChessGame gameState, Piece pieceToMove, BoardPos2D destination) {
+        this.gameState = gameState;
         this.pieceToMove = pieceToMove;
         this.destination = destination;
     }
 
     public void execute() {
-        board.movePiece(pieceToMove.getPosition(), destination);
+        gameState.movePiece(pieceToMove.getPosition(), destination);
         pieceToMove.setPiecePosition(destination);
     }
 

@@ -2,7 +2,8 @@ package engine;
 
 import chess.ChessView;
 import chess.PlayerColor;
-import engine.pieces.Piece;
+import engine.moves.Move;
+import engine.pieces.*;
 
 import java.util.LinkedList;
 
@@ -24,6 +25,8 @@ public class AltChessGame implements chess.ChessController
                     new AltChessPlayer(PlayerColor.BLACK, -1)
             };
 
+    private BoardPos2D enPassant;
+
 
     /**
      * Démarre la logique (contrôleur) du programme.
@@ -33,7 +36,8 @@ public class AltChessGame implements chess.ChessController
      */
     @Override
     public void start(ChessView view) {
-        view.startView();
+        this.view = view;
+        this.view.startView();
     }
 
     /**
@@ -48,17 +52,36 @@ public class AltChessGame implements chess.ChessController
      */
     @Override
     public boolean move(int fromX, int fromY, int toX, int toY) {
-        System.out.println("(" + fromX + ", " + fromY + ") ---> (" + toX + ", " + toY + ")");
+        Piece pieceToMove = board.getPieceOn(fromX, fromY);
 
         // Checks préalables
+        if (pieceToMove == null) {
+            view.displayMessage("ERROR: Nopiiece moved!");
+            return false;
+        }
 
+        if (pieceToMove.getColor() != playerTurn) {
+            view.displayMessage("ERROR: Not this color's turn!");
+            return false;
+        }
 
-        // Piece.CheckMove -> Move
+        if (board.getPieceOn(toX, toY) != null && pieceToMove.getColor() == board.getPieceOn(toX, toY).getColor()) {
+            view.displayMessage("ERROR: Destination already occupied by same color piece!");
+            return false;
+        }
 
-        // Move.execute
+        Move move = pieceToMove.isPieceLegalMove(this, new BoardPos2D(new int[]{toX, toY}));
 
+        if (move == null) {
+            view.displayMessage("Error: Piece illegal move");
+            return false;
+        }
 
-        return false;
+        move.execute();
+
+        nextTurn();
+
+        return true;
     }
 
     /**
@@ -66,19 +89,19 @@ public class AltChessGame implements chess.ChessController
      */
     @Override
     public void newGame() {
-        this.playerTurn = PlayerColor.WHITE;
+        board = new AltChessBoard();
+        playerTurn = PlayerColor.WHITE;
 
-        PlayerColor tmp_color;
+        for (AltChessPlayer player : players) {
+            player.resetPlayer();
 
-        // init bottom player
-        tmp_color = players[0].getColor();
-
-
+            for (Piece piece : player.getPieces())
+                placePiece(piece);
+        }
     }
 
-    public void addPiece(Piece piece){
-        this.board.setPieceOn(piece, piece.getPosition());
-        this.view.putPiece(piece.getPieceName(), piece.getColor(), piece.getX(), piece.getY());
+    public void nextTurn(){
+        this.playerTurn = PlayerColor.WHITE == this.playerTurn ? PlayerColor.BLACK : PlayerColor.WHITE;
     }
 
     public AltChessPlayer getCurrentPayer() {
@@ -89,7 +112,50 @@ public class AltChessGame implements chess.ChessController
         return playerTurn == players[0].getColor() ? players[1] : players[0];
     }
 
-    public void nextTurn(){
-        this.playerTurn = PlayerColor.WHITE == this.playerTurn ? PlayerColor.BLACK : PlayerColor.WHITE;
+    public void placePiece(Piece piece){
+        this.board.setPieceOn(piece, piece.getPosition());
+        this.view.putPiece(piece.getPieceName(), piece.getColor(), piece.getX(), piece.getY());
+    }
+
+    public void killPiece(Piece piece){
+        getOtherPlayer().removePiece(piece);
+    }
+
+    public void movePiece(BoardPos2D from, BoardPos2D to) {
+        Piece pieceToMove = getPieceOn(from);
+
+        view.putPiece(pieceToMove.getPieceName(), pieceToMove.getColor(), to.getX(), to.getY());
+        view.removePiece(from.getX(), from.getY());
+
+        board.setPieceOn(pieceToMove, to);
+        board.setPieceOn(null, from);
+    }
+
+    public Piece getPieceOn(BoardPos2D pos2D){
+        return board.getPieceOn(pos2D);
+    }
+
+    public Piece getPieceOn(int x, int y){
+        return board.getPieceOn(x, y);
+    }
+
+    public void setPositionEnPassant(BoardPos2D positionEnPassant) {
+        this.enPassant  = positionEnPassant;
+    }
+
+    public BoardPos2D getPositionEnPassant() {
+        return enPassant;
+    }
+
+    public void removeEnPassantPawn() {
+        if (enPassant.getY() == 2) {
+            view.removePiece(enPassant.getX(), 3);
+            board.setPieceOn(null, enPassant.getX(), 3);
+        }
+
+        if (enPassant.getY() == 5) {
+            view.removePiece(enPassant.getX(), 4);
+            board.setPieceOn(null, enPassant.getX(), 4);
+        }
     }
 }
