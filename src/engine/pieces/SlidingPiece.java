@@ -16,13 +16,16 @@ public abstract class SlidingPiece extends Piece{
 
         int[] vector = { dx == 0 ? 0 : dx/Math.abs(dx), dy == 0 ? 0 : dy/Math.abs(dy)};
 
-        do {
-            tmpPosition = tmpPosition.offsetBy(vector);
+        tmpPosition = tmpPosition.offsetBy(vector);
+
+        while (!tmpPosition.equals(endPosition)) {
 
             if (gameState.getPieceOn(tmpPosition) != null) {
                 return false;
             }
-        } while (!tmpPosition.equals(endPosition));
+
+            tmpPosition = tmpPosition.offsetBy(vector);
+        }
 
         return true;
     }
