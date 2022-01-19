@@ -68,31 +68,58 @@ public class Player {
         this.pieces.remove(piece);
     }
 
-
+    /**
+     * Ajoute une pièce à la liste de pièce du joueur
+     * @param piece pièce à ajouter
+     */
     void addPiece(Piece piece) {
         this.pieces.add(piece);
     }
 
+    /**
+     * Méthode utilisée pour savoir si le joueur peut faire un grand rock
+     * @return true si le joueur peut faire un grand rock, false sinon
+     */
     boolean isPlayerLCastlable() {
         return playerLCastlable;
     }
 
+    /**
+     * Méthode utilisée pour savoir si le joueur peut faire un petit rock
+     * @return true si le joueur peut faire un petit rock, false sinon
+     */
     boolean isPlayerRCastlable() {
         return playerRCastlable;
     }
 
+    /**
+     * Méthode pour connaître la couleur du joueur
+     * @return la couleur du joueur
+     */
     public PlayerColor getColor() {
         return color;
     }
 
+    /**
+     * Méthode permettant de connaître le sens des pions
+     * @return un entier signé indiquand le sens des pion (normalement 1 ou -1)
+     */
     public int getPawnDirection() {
         return pawnDirection;
     }
 
+    /**
+     * Méthode utilisée pour accéder directement au roi du joueur
+     * @return une référence sur le roi de ce joueur
+     */
     public Piece getKing() {
         return king;
     }
 
+    /**
+     * Méthode utilisée pour récupérer la liste des pièces de ce joueur
+     * @return liste contenant les pièces encore vivantes du joueur.
+     */
     public ArrayList<Piece> getPieces() {
         return pieces;
     }

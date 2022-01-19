@@ -18,25 +18,45 @@ public class Pawn extends MoveTrackedPiece {
             { 1, 1}
     };
 
-    public Pawn(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
-        super(piecePosition, pieceTeam);
-        pawnDirection = pieceTeam == PlayerColor.WHITE ? 1 : -1;
+    /**
+     * Constructeur du pion
+     * @param piecePosition Position ou le pion est placé
+     * @param pieceColour Couleur de la pièce
+     */
+    public Pawn(final BoardPos2D piecePosition, final PlayerColor pieceColour) {
+        super(piecePosition, pieceColour);
+        pawnDirection = pieceColour == PlayerColor.WHITE ? 1 : -1;
     }
 
+    /**
+     * Redéfinition de la méthode isPieceLegalMove de Piece. Cette méthode permet de tester si le move tenté est légal
+     * pour le fou.
+     * @param gameState état du reste du jeu
+     * @param destination position d'arrivée du déplacement tenté
+     * @return null si le mouvement n'est pas légal pour le pion,
+     *         Attack si le pion mange une pièce en diagonale de lui
+     *         Move si le pion ne fait que se déplacer de 1 en ligne droite
+     *         PawnJump si le pion fait un premier déplacement de 2
+     *         EnPassant si le pion fait une prise en passant valide
+     */
     @Override
     public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         Piece pieceOnDestination = gameState.getPieceOn(destination);
 
-        if (pieceOnDestination == null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)))
+        //Test si c'est un déplacement normal
+        if (pieceOnDestination == null &&
+            destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)))
             return new Move(gameState, this, destination);
 
+        //Test si c'est un premier déplacement de 2
         if (!hasMoved &&
-                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2], pawnDirection)) &&
-                gameState.getPieceOn(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)) == null)
+            destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2], pawnDirection)) &&
+            gameState.getPieceOn(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)) == null)
             return new PawnJump(gameState, this, destination, pawnDirection);
 
+        //Test si c'est une attaque, et si oui, s'il s'agit d'une attaque normale ou d'une tentative de prise en passant
         if (destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[0], pawnDirection)) ||
-                destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[3], pawnDirection)))
+            destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[3], pawnDirection)))
         {
             if (pieceOnDestination != null)
                 return new Attack(gameState, this, destination, pieceOnDestination);
@@ -48,35 +68,19 @@ public class Pawn extends MoveTrackedPiece {
         return null;
     }
 
-
-    @Override
-    public List<Move> calculateLegalMoves(Game gameState) {
-//        BoardPos2D candidateDestPosition;
-//        final List<Move> legalMoves = new ArrayList<>();
-//
-//        for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
-//
-//            candidateDestPosition = m_piecePosition.offsetBy(currentCandidate);
-//
-//            if (candidateDestPosition.isValidPos())
-//            {
-//                if(board.getPieceOnPosition(candidateDestPosition) == null) {
-//                    legalMoves.add(new Move(board, this, candidateDestPosition));
-//                } else {
-//                    //final Piece =
-//                }
-//            }
-//        }
-//
-//        return Collections.unmodifiableList(List.copyOf(legalMoves));
-        return null;
-    }
-
+    /**
+     * Méthode pour savoir de quel type de pièce il s'agit
+     * @return le type de pièce
+     */
     @Override
     public PieceType getPieceName() {
         return PieceType.PAWN;
     }
 
+    /**
+     * Méthode pour récupérer le sens de déplacement du pion
+     * @return un entier valant 1 ou -1 selon le sens de déplacement
+     */
     public int getPawnDirection() {
         return pawnDirection;
     }

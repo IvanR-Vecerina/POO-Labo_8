@@ -14,10 +14,24 @@ public class Queen extends SlidingPiece{
 
     private final static int[][] CANDIDATE_MOVE_VECTORS_OFFSETS = {U, D, L, R, DR, DL, UR, UL};
 
+    /**
+     * Constructeur de la reine
+     * @param piecePosition Position ou la reine est placée
+     * @param pieceColour Couleur de la pièce
+     */
     public Queen(BoardPos2D piecePosition, PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
     }
 
+    /**
+     * Redéfinition de la méthode isPieceLegalMove de Piece. Cette méthode permet de tester si le move tenté est légal
+     * pour la dame.
+     * @param gameState état du reste du jeu
+     * @param destination position d'arrivée du déplacement tenté
+     * @return null si le mouvement n'est pas légal pour la dame,
+     *         Attack si la dame mange une pièce
+     *         Move si la dame ne fait que se déplacer
+     */
     @Override
     public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         int deltaX = destination.getX() - m_piecePosition.getX();
@@ -29,32 +43,10 @@ public class Queen extends SlidingPiece{
         return null;
     }
 
-    @Override
-    public List<Move> calculateLegalMoves(Game gameState) {
-//        BoardPos2D candidateDestPosition;
-//        final List<Move> legalMoves = new ArrayList<>();
-//
-//        for (final int[] currentCandidate : CANDIDATE_MOVE_VECTORS_OFFSETS){
-//            candidateDestPosition = m_piecePosition.offsetBy(currentCandidate);
-//
-//            while (candidateDestPosition.isValidPos()){
-//                if (board.getPieceOnPosition(candidateDestPosition) == null){
-//                    legalMoves.add(new Move(board, this, candidateDestPosition));
-//                }else{
-//                    if (board.getPieceOnPosition(candidateDestPosition).m_pieceColour != m_pieceColour){
-//                        legalMoves.add(new Move(board, this, candidateDestPosition));
-//                    }
-//                    break;
-//                }
-//
-//                candidateDestPosition = candidateDestPosition.offsetBy(currentCandidate);
-//            }
-//        }
-//
-//        return Collections.unmodifiableList(List.copyOf(legalMoves));
-        return null;
-    }
-
+    /**
+     * Méthode pour savoir de quel type de pièce il s'agit
+     * @return le type de pièce
+     */
     @Override
     public PieceType getPieceName() {
         return PieceType.QUEEN;

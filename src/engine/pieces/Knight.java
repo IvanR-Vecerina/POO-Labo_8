@@ -22,15 +22,33 @@ public class Knight extends Piece{
             { 2, 1}
     };
 
-    public Knight(final BoardPos2D piecePosition, final PlayerColor pieceTeam) {
-        super(piecePosition, pieceTeam);
+    /**
+     * Constructeur du cavalier
+     * @param piecePosition Position ou le cavalier est placé
+     * @param pieceColour Couleur de la pièce
+     */
+    public Knight(final BoardPos2D piecePosition, final PlayerColor pieceColour) {
+        super(piecePosition, pieceColour);
     }
 
+    /**
+     * Méthode pour savoir de quel type de pièce il s'agit
+     * @return le type de pièce
+     */
     @Override
     public PieceType getPieceName() {
         return PieceType.KNIGHT;
     }
 
+    /**
+     * Redéfinition de la méthode isPieceLegalMove de Piece. Cette méthode permet de tester si le move tenté est légal
+     * pour le cavalier.
+     * @param gameState état du reste du jeu
+     * @param destination position d'arrivée du déplacement tenté
+     * @return null si le mouvement n'est pas légal pour le cavalier,
+     *         Attack si le cavalier mange une pièce
+     *         Move si le cavalier ne fait que se déplacer
+     */
     @Override
     public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         Piece pieceOnDestination = gameState.getPieceOn(destination);
@@ -43,30 +61,6 @@ public class Knight extends Piece{
                     return new Attack(gameState, this, destination, pieceOnDestination);
                 }
         }
-        return null;
-    }
-
-
-    @Override
-    public List<Move> calculateLegalMoves(Game gameState) {
-//        BoardPos2D candidateDestPosition;
-//        final List<Move> legalMoves = new ArrayList<>();
-//
-//        for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
-//
-//            candidateDestPosition = m_piecePosition.offsetBy(currentCandidate);
-//
-//            if (candidateDestPosition.isValidPos())
-//            {
-//                if(board.getPieceOnPosition(candidateDestPosition) == null) {
-//                    legalMoves.add(new Move(board, this, candidateDestPosition));
-//                } else {
-//                    //final Piece =
-//                }
-//            }
-//        }
-//
-//        return Collections.unmodifiableList(List.copyOf(legalMoves));
         return null;
     }
 

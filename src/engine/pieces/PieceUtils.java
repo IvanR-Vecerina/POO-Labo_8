@@ -9,6 +9,4 @@ public class PieceUtils {
     public static final int[] DR = { 1, -1};
     public static final int[] R  = { 1,  0};
     public static final int[] UR = { 1,  1};
-
-
 }
