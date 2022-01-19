@@ -1,12 +1,12 @@
 package engine.moves;
 
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
 public class EnPassant extends Attack {
 
-    public EnPassant(AltChessGame gameState, Piece pieceToMove, BoardPos2D destination, Piece attackedPiece) {
+    public EnPassant(Game gameState, Piece pieceToMove, BoardPos2D destination, Piece attackedPiece) {
         super(gameState, pieceToMove, destination, attackedPiece);
     }
 

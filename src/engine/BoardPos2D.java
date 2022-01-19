@@ -6,11 +6,20 @@ public class BoardPos2D {
     private final int m_x;
     private final int m_y;
 
+    /**
+     * Constructeur de BoardPos2D prenant des coordonées x et y
+     * @param x Position X du BoardPos2D
+     * @param y Position Y du BoardPos2D
+     */
     public BoardPos2D(final int x, final int y){
         m_x = x;
         m_y = y;
     }
 
+    /**
+     * Constructeur de BoardPos2D prenant un BoardPos2D en paramètre
+     * @param
+     */
     public BoardPos2D(final BoardPos2D p){
         m_x = p.getX();
         m_y = p.getY();

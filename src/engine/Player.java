@@ -1,23 +1,23 @@
 package engine;
 
 import chess.PlayerColor;
+import engine.moves.Move;
 import engine.pieces.*;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-public class AltChessPlayer {
+public class Player {
 
     private final PlayerColor color;
     private final int pawnDirection;
 
     private ArrayList<Piece> pieces;
-    private Piece king;
+    private King king;
 
     private boolean playerLCastlable;
     private boolean playerRCastlable;
 
-    AltChessPlayer(PlayerColor color, int pawnDirection) {
+    Player(PlayerColor color, int pawnDirection) {
         this.color = color;
         this.pawnDirection = pawnDirection;
     }
@@ -75,6 +75,16 @@ public class AltChessPlayer {
 
     public Piece getKing() {
         return king;
+    }
+
+    public boolean isChecking(Game board, Piece kingEnemy){
+        Move move;
+        for(Piece piece : pieces){
+            if(piece.isPieceLegalMove(board, kingEnemy.getPosition()) != null){
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Piece> getPieces() {

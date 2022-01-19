@@ -1,13 +1,13 @@
 package engine.moves;
 
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
 public class Castling extends Move {
     Piece m_rookToCastle;
 
-    public Castling(AltChessGame gameState, Piece pieceToMove, BoardPos2D destination, Piece rookToCastle) {
+    public Castling(Game gameState, Piece pieceToMove, BoardPos2D destination, Piece rookToCastle) {
         super(gameState, pieceToMove, destination);
         m_rookToCastle = rookToCastle;
     }

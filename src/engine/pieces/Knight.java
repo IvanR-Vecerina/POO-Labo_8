@@ -2,7 +2,7 @@ package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.moves.Attack;
 import engine.moves.Move;
@@ -32,7 +32,7 @@ public class Knight extends Piece{
     }
 
     @Override
-    public Move isPieceLegalMove(AltChessGame gameState, BoardPos2D destination) {
+    public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         Piece pieceOnDestination = gameState.getPieceOn(destination);
 
         for (final int[] currentCandidate : CANDIDATE_MOVES_OFFSETS){
@@ -48,7 +48,7 @@ public class Knight extends Piece{
 
 
     @Override
-    public List<Move> calculateLegalMoves(AltChessGame gameState) {
+    public List<Move> calculateLegalMoves(Game gameState) {
 //        BoardPos2D candidateDestPosition;
 //        final List<Move> legalMoves = new ArrayList<>();
 //
@@ -69,4 +69,5 @@ public class Knight extends Piece{
 //        return Collections.unmodifiableList(List.copyOf(legalMoves));
         return null;
     }
+
 }

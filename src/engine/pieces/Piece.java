@@ -2,7 +2,7 @@ package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.moves.Move;
 
@@ -18,9 +18,9 @@ public abstract class Piece {
         m_pieceColour   = pieceColour;
     }
 
-    public abstract Move isPieceLegalMove(AltChessGame gameState, BoardPos2D destination);
+    public abstract Move isPieceLegalMove(Game gameState, BoardPos2D destination);
 
-    public abstract List<Move> calculateLegalMoves(final AltChessGame gameState);
+    public abstract List<Move> calculateLegalMoves(final Game gameState);
 
     public abstract PieceType getPieceName();
 

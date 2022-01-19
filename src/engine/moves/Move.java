@@ -1,15 +1,15 @@
 package engine.moves;
 
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
 public class Move {
-    protected final AltChessGame gameState;
+    protected final Game gameState;
     protected final Piece pieceToMove;
     protected final BoardPos2D destination;
 
-    public Move(AltChessGame gameState, Piece pieceToMove, BoardPos2D destination) {
+    public Move(Game gameState, Piece pieceToMove, BoardPos2D destination) {
         this.gameState = gameState;
         this.pieceToMove = pieceToMove;
         this.destination = destination;

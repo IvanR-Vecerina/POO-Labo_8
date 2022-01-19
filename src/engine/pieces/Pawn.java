@@ -2,7 +2,7 @@ package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.moves.*;
 
@@ -24,7 +24,7 @@ public class Pawn extends MoveTrackedPiece {
     }
 
     @Override
-    public Move isPieceLegalMove(AltChessGame gameState, BoardPos2D destination) {
+    public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         Piece pieceOnDestination = gameState.getPieceOn(destination);
 
         if (pieceOnDestination == null && destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)))
@@ -50,7 +50,7 @@ public class Pawn extends MoveTrackedPiece {
 
 
     @Override
-    public List<Move> calculateLegalMoves(AltChessGame gameState) {
+    public List<Move> calculateLegalMoves(Game gameState) {
 //        BoardPos2D candidateDestPosition;
 //        final List<Move> legalMoves = new ArrayList<>();
 //
@@ -80,4 +80,5 @@ public class Pawn extends MoveTrackedPiece {
     public int getPawnDirection() {
         return pawnDirection;
     }
+
 }

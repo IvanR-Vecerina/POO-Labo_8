@@ -2,7 +2,7 @@ package engine.pieces;
 
 import chess.PieceType;
 import chess.PlayerColor;
-import engine.AltChessGame;
+import engine.Game;
 import engine.BoardPos2D;
 import engine.moves.Attack;
 import engine.moves.Castling;
@@ -19,7 +19,7 @@ public class King extends MoveTrackedPiece {
     }
 
     @Override
-    public Move isPieceLegalMove(AltChessGame gameState, BoardPos2D destination) {
+    public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
         Piece pieceOnDestination = gameState.getPieceOn(destination);
         int deltaX = destination.getX() - m_piecePosition.getX();
         int deltaY = destination.getY() - m_piecePosition.getY();
@@ -45,7 +45,7 @@ public class King extends MoveTrackedPiece {
     }
 
     @Override
-    public List<Move> calculateLegalMoves(AltChessGame gameState) {
+    public List<Move> calculateLegalMoves(Game gameState) {
         return null;
     }
 
@@ -53,4 +53,6 @@ public class King extends MoveTrackedPiece {
     public PieceType getPieceName() {
         return PieceType.KING;
     }
+
+
 }

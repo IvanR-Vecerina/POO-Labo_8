@@ -2,10 +2,10 @@ package engine;
 
 import engine.pieces.Piece;
 
-public class AltChessBoard {
+public class Board {
     private final Piece[][] board;
 
-    public AltChessBoard() {
+    public Board() {
         this.board = new Piece[8][8];
     }
 
