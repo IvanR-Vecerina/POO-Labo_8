@@ -28,12 +28,12 @@ public class Move {
     }
 
     // Apply move to engine (board + pieceData update)
-    public void tryMove(){
+    protected void tryMove(){
         oldPos = pieceToMove.getPosition();
 
         gameState.movePieceBoard(pieceToMove, destination);
+        gameState.movePieceBoard(null, pieceToMove.getPosition());
         pieceToMove.setPiecePosition(destination);
-
     }
 
     protected boolean checkMove(){
@@ -45,13 +45,13 @@ public class Move {
     }
 
     // Rollback changes on engine
-    public void rollbackMove() {
+    protected void rollbackMove() {
         gameState.movePieceBoard(pieceToMove, oldPos);
+        gameState.movePieceBoard(null, pieceToMove.getPosition());
         pieceToMove.setPiecePosition(oldPos);
-
     }
 
-    public void execute() {
+    protected void execute() {
         gameState.movePiece(pieceToMove, oldPos);
     }
 

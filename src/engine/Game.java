@@ -282,7 +282,7 @@ public class Game implements chess.ChessController
 
     public void movePieceBoard(Piece pieceToMove, BoardPos2D destination){
         board.setPieceOn(pieceToMove, destination);
-        board.setPieceOn(null, pieceToMove.getPosition());
+        //board.setPieceOn(null, pieceToMove.getPosition());
     }
 
     public boolean isChecking(Game board){

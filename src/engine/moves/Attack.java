@@ -12,6 +12,11 @@ public class Attack extends Move{
         m_attackedPiece = attackedPiece;
     }
 
+    @Override
+    protected void rollbackMove() {
+        super.rollbackMove();
+        gameState.movePieceBoard(m_attackedPiece, m_attackedPiece.getPosition());
+    }
 
     @Override
     public void execute() {
