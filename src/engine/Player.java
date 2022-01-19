@@ -17,17 +17,28 @@ public class Player {
     private boolean playerLCastlable;
     private boolean playerRCastlable;
 
+    /**
+     * Constructeur d'un player.
+     * @param color couleur d'un joueur (noir ou blanc)
+     * @param pawnDirection sens dans lequel vont se déplacer les pions.
+     */
     Player(PlayerColor color, int pawnDirection) {
         this.color = color;
         this.pawnDirection = pawnDirection;
     }
 
+    /**
+     * Réinitialise le joueur et ses pièces pour un début de partie
+     */
     void resetPlayer() {
         playerLCastlable = true;
         playerRCastlable = true;
         initPieceSet();
     }
 
+    /**
+     * Initialisation de toutes les pièces d'une couleur
+     */
     private void initPieceSet() {
         pieces = new ArrayList<>();
 
@@ -49,9 +60,14 @@ public class Player {
             pieces.add(new Pawn(new BoardPos2D(i, pawnRowIndex), color));
     }
 
+    /**
+     * Supprime une pièce de la liste de pièces possédées par un joueur
+     * @param piece pièce à supprimer
+     */
     void removePiece(Piece piece) {
         this.pieces.remove(piece);
     }
+
 
     void addPiece(Piece piece) {
         this.pieces.add(piece);
@@ -75,16 +91,6 @@ public class Player {
 
     public Piece getKing() {
         return king;
-    }
-
-    public boolean isChecking(Game board, Piece kingEnemy){
-        Move move;
-        for(Piece piece : pieces){
-            if(piece.isPieceLegalMove(board, kingEnemy.getPosition()) != null){
-                return true;
-            }
-        }
-        return false;
     }
 
     public ArrayList<Piece> getPieces() {
