@@ -86,18 +86,20 @@ public class Game implements chess.ChessController
             return false;
         }
 
+        if(!move.doMove()){
+            view.displayMessage("ERROR: Discovery check");
+            return false;
+        }
 
-
-        move.execute();
 
         if(pieceToMove.getPieceName() == PieceType.PAWN){
             if((pieceToMove.getY() == 0 && pieceToMove.getColor() == PlayerColor.BLACK) ||
                (pieceToMove.getY() == 7 && pieceToMove.getColor() == PlayerColor.WHITE)){
-
                 promotion(pieceToMove);
-
             }
         }
+
+
 
         nextTurn();
 
@@ -162,7 +164,7 @@ public class Game implements chess.ChessController
     }
 
     /**
-     * Méthode utilisée pour déplacer une pièce
+     * Méthode utilisée pour déplacer une pièce d'un point à un autre
      * @param from Position de départ de la pièce
      * @param to Position d'arrivée de la pièce
      */
@@ -174,6 +176,17 @@ public class Game implements chess.ChessController
 
         board.setPieceOn(pieceToMove, to);
         board.setPieceOn(null, from);
+    }
+
+    /**
+     * Méthode utilisée pour déplacer une pièce d'un point à un autre
+     * @param from Position de départ de la pièce
+     * @param to Position d'arrivée de la pièce
+     */
+    public void movePiece(Piece to, BoardPos2D from) {
+
+        view.putPiece(to.getPieceName(), to.getColor(), to.getX(), to.getY());
+        view.removePiece(from.getX(), from.getY());
     }
 
     /**
@@ -267,5 +280,17 @@ public class Game implements chess.ChessController
 
     }
 
+    public void movePieceBoard(Piece pieceToMove, BoardPos2D destination){
+        board.setPieceOn(pieceToMove, destination);
+        board.setPieceOn(null, pieceToMove.getPosition());
+    }
 
+    public boolean isChecking(Game board){
+        for(Piece piece : getOtherPlayer().getPieces()){
+            if(piece.isPieceLegalMove(board, getCurrentPayer().getKing().getPosition()) != null){
+                return true;
+            }
+        }
+        return false;
+    }
 }
