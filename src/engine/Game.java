@@ -17,7 +17,7 @@ public class Game implements chess.ChessController
     // turn
     private PlayerColor playerTurn;
 
-    private Promotion[] listePromotion =
+    private final Promotion[] listePromotion =
             {
                     new Promotion("Queen"),
                     new Promotion("Knight"),
@@ -26,7 +26,7 @@ public class Game implements chess.ChessController
             };
 
     // players
-    private Player[] players =
+    private final Player[] players =
             {
                     new Player(PlayerColor.WHITE,  1),
                     new Player(PlayerColor.BLACK, -1)
@@ -65,7 +65,7 @@ public class Game implements chess.ChessController
 
         // Checks préalables
         if (pieceToMove == null) {
-            view.displayMessage("ERROR: Nopiiece moved!");
+            view.displayMessage("ERROR: No piece moved!");
             return false;
         }
 
@@ -85,6 +85,8 @@ public class Game implements chess.ChessController
             view.displayMessage("Error: Piece illegal move");
             return false;
         }
+
+
 
         move.execute();
 

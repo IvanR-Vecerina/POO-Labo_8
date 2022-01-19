@@ -15,6 +15,23 @@ public class Move {
         this.destination = destination;
     }
 
+    // Apply move to engine (board + pieceData update)
+    public void tryMove() {
+        // apply move to board and piece(s)
+
+        // Check putting yourself in check?
+
+        // if (check success)
+            // move.execute();
+        // else
+            // rollback
+    }
+
+    // Rollback changes on engine
+    public void rollbackMove() {
+
+    }
+
     public void execute() {
         gameState.movePiece(pieceToMove.getPosition(), destination);
         pieceToMove.setPiecePosition(destination);
