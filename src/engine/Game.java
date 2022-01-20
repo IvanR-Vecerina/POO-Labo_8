@@ -222,7 +222,7 @@ public class Game implements chess.ChessController
 
     /**
      * Méthode pour récupérer la position du en passant s'il y en a une
-     * @return null s'il n'y a aucune position de en passant,
+     * @return null s'il n'y a aucune position d'en passant,
      *         Position du en passant
      */
     public BoardPos2D getPositionEnPassant() {
@@ -282,9 +282,9 @@ public class Game implements chess.ChessController
     }
 
     /**
-     * Méthode utilisée pour placer une pièce sur le board à travec Game
+     * Méthode utilisée pour placer une pièce sur le board à traver Game
      * @param pieceToMove pièce que l'on souhaite placer sur le board
-     * @param destination position ou l'on souhaite poser la pièce
+     * @param destination position où l'on souhaite poser la pièce
      */
     public void movePieceBoard(Piece pieceToMove, BoardPos2D destination){
         board.setPieceOn(pieceToMove, destination);
