@@ -186,8 +186,8 @@ public class Game implements chess.ChessController
      */
     public void movePiece(Piece to, BoardPos2D from) {
 
-        view.putPiece(to.getPieceName(), to.getColor(), to.getX(), to.getY());
         view.removePiece(from.getX(), from.getY());
+        view.putPiece(to.getPieceName(), to.getColor(), to.getX(), to.getY());
     }
 
     /**

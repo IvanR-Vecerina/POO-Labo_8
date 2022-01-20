@@ -125,14 +125,14 @@ public class Player {
     }
 
     /**
-     * Enlève la possibilité de faire un roque à droite
+     * Enlève la possibilité de faire un roque à gauche
      */
     public void removeCastlelingL(){
         playerLCastlable = false;
     }
 
     /**
-     * Enlève la possibilité de faire un roque à gauche
+     * Enlève la possibilité de faire un roque à droite
      */
     public void removeCastlelingR(){
         playerRCastlable = false;

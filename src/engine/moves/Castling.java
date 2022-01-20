@@ -30,16 +30,13 @@ public class Castling extends Move {
     protected void tryMove() {
         posInit = pieceToMove.getPosition();
         posRook = m_rookToCastle.getPosition();
-        if (m_rookToCastle.getX() == 7 && gameState.getCurrentPayer().isPlayerRCastlable()) {
-            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{-2, 0})).doMove();
+
+        if (m_rookToCastle.getX() == 7){
             rookMove = -2;
             kingMove = 1;
-        }else if (m_rookToCastle.getX() == 0 && gameState.getCurrentPayer().isPlayerLCastlable()) {
-            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{3, 0})).doMove();
+        }else if (m_rookToCastle.getX() == 0){
             rookMove = 3;
             kingMove = -1;
-        }else{
-            rookCanMove = false;
         }
     }
 
@@ -51,18 +48,40 @@ public class Castling extends Move {
     @Override
     protected boolean checkMove() {
 
-        if(!rookCanMove){
+        /*if(!rookCanMove){
+            return false;
+        }*/
+
+        if(m_rookToCastle.getX() == 7 && gameState.getCurrentPayer().isPlayerRCastlable() ||
+           m_rookToCastle.getX() == 0 && gameState.getCurrentPayer().isPlayerLCastlable()){
+
+            BoardPos2D p;
+            for(int i = 0; i < 3; i++){
+                p = new BoardPos2D((i * kingMove) + pieceToMove.getX(), pieceToMove.getY());
+                if(gameState.getOtherPlayer().canAttack(gameState, p)){
+                    return false;
+                }
+            }
+
+            if(m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{rookMove, 0})).doMove()){
+                return true;
+            }
+        }
+        return false;
+/*
+        if (m_rookToCastle.getX() == 7 && gameState.getCurrentPayer().isPlayerRCastlable()) {
+            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{-2, 0})).doMove();
+            rookMove = -2;
+            kingMove = 1;
+        }else if (m_rookToCastle.getX() == 0 && gameState.getCurrentPayer().isPlayerLCastlable()) {
+            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{3, 0})).doMove();
+            rookMove = 3;
+            kingMove = -1;
+        }else{
             return false;
         }
 
-        BoardPos2D p;
-        for(int i = 0; i < 3; i++){
-             p = new BoardPos2D((i * kingMove) + pieceToMove.getX(), pieceToMove.getY());
-            if(gameState.getOtherPlayer().canAttack(gameState, p)){
-                return false;
-            }
-        }
-        return true;
+        return true;*/
     }
 
     /**
@@ -73,9 +92,10 @@ public class Castling extends Move {
     protected void rollbackMove() {
         BoardPos2D tmp = m_rookToCastle.getPosition();
         gameState.movePieceBoard(null, m_rookToCastle.getPosition());
+        gameState.movePieceBoard(m_rookToCastle, posRook);
         m_rookToCastle.setPiecePosition(posRook);
         gameState.movePiece(m_rookToCastle, tmp);
-        //gameState.movePieceBoard(m_rookToCastle, new BoardPos2D(m_rookToCastle.getX() + rookMove, m_rookToCastle.getY()));
+
 
     }
 
