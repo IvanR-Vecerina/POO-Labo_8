@@ -1,149 +1,102 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="POO - Labo 8 (Chess)">
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="19003" name="&gt; attaquee">
-      <role componentId="18700" name="" visibility="PRIVATE">
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="22413" name="&gt; de depart">
+      <role componentId="10953" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
-      <role componentId="1028" name="" visibility="PRIVATE">
+      <role componentId="1041" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
     </association>
-    <inheritance id="18989">
-      <child>18979</child>
+    <inheritance id="22400">
+      <child>22372</child>
       <parent>18700</parent>
     </inheritance>
-    <entity entityType="CLASS" id="18979" isAbstract="false" name="EnPassant" visibility="PUBLIC">
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="Attack" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="GAme"/>
+    <entity entityType="CLASS" id="22372" isAbstract="false" name="EnPassant" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="EnPassant" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
         <variable const="false" name="pieceToMove" type="Piece"/>
         <variable const="false" name="destination" type="BoardPos2d"/>
         <variable const="false" name="attackedPiece" type="Piece"/>
       </method>
     </entity>
-    <inheritance id="18978">
-      <child>18788</child>
+    <dependency id="9504" label="implements">
+      <source>9503</source>
+      <target>1044</target>
+    </dependency>
+    <inheritance id="15087">
+      <child>15073</child>
+      <parent>14615</parent>
+    </inheritance>
+    <inheritance id="15086">
+      <child>1030</child>
+      <parent>14615</parent>
+    </inheritance>
+    <inheritance id="15085">
+      <child>15061</child>
+      <parent>14615</parent>
+    </inheritance>
+    <inheritance id="15012">
+      <child>1029</child>
+      <parent>14614</parent>
+    </inheritance>
+    <inheritance id="15011">
+      <child>14999</child>
+      <parent>14614</parent>
+    </inheritance>
+    <inheritance id="18380">
+      <child>1032</child>
+      <parent>1028</parent>
+    </inheritance>
+    <inheritance id="18381">
+      <child>14614</child>
+      <parent>1028</parent>
+    </inheritance>
+    <inheritance id="18382">
+      <child>14615</child>
+      <parent>1028</parent>
+    </inheritance>
+    <inheritance id="18425">
+      <child>18407</child>
       <parent>1041</parent>
     </inheritance>
-    <entity entityType="CLASS" id="18788" isAbstract="false" name="Attack" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="direction" type="int" visibility="PRIVATE"/>
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="Attack" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="GAme"/>
-        <variable const="false" name="pieceToMove" type="Piece"/>
-        <variable const="false" name="destination" type="BoardPos2d"/>
-        <variable const="false" name="pawnDirection" type="int"/>
-      </method>
-    </entity>
     <inheritance id="18787">
       <child>18700</child>
       <parent>1041</parent>
     </inheritance>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18736" name="possede &gt;">
-      <role componentId="10279" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="1028" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>8</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="18700" isAbstract="false" name="Attack" visibility="PUBLIC">
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="Attack" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="GAme"/>
-        <variable const="false" name="pieceToMove" type="Piece"/>
-        <variable const="false" name="destination" type="BoardPos2d"/>
-        <variable const="false" name="attackedPiece" type="Piece"/>
-      </method>
-    </entity>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18675" name="&gt; avec qui faire le rock">
-      <role componentId="18407" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="15061" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <association aggregation="AGGREGATE" direction="BIDIRECTIONAL" id="18648" name="est un tableau de">
-      <role componentId="9961" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="1028" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>64</min>
-          <max>64</max>
-        </multiplicity>
-      </role>
-    </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18627" name="&gt; a deplacer">
-      <role componentId="1041" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="1028" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18605" name="destination de &lt;">
-      <role componentId="1041" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="10953" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18580" name="&gt; de la prise en passant">
+    <inheritance id="18978">
+      <child>18788</child>
+      <parent>1041</parent>
+    </inheritance>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="15181" name="etat de ^">
       <role componentId="9503" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
-      <role componentId="10953" name="" visibility="PRIVATE">
+      <role componentId="1041" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18563" name="represente &lt;">
-      <role componentId="9961" name="" visibility="PRIVATE">
+    <association aggregation="AGGREGATE" direction="BIDIRECTIONAL" id="11511" name="position de &gt;">
+      <role componentId="1028" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
-      <role componentId="9503" name="" visibility="PRIVATE">
+      <role componentId="10953" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
@@ -164,56 +117,22 @@
         </multiplicity>
       </role>
     </association>
-    <inheritance id="18425">
-      <child>18407</child>
-      <parent>1041</parent>
-    </inheritance>
-    <entity entityType="CLASS" id="18407" isAbstract="false" name="Castling" visibility="PUBLIC">
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="Castling" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="GAme"/>
-        <variable const="false" name="pieceToMove" type="Piece"/>
-        <variable const="false" name="destination" type="BoardPos2d"/>
-        <variable const="false" name="rookToCastle" type="Piece"/>
-      </method>
-    </entity>
-    <inheritance id="18382">
-      <child>14615</child>
-      <parent>1028</parent>
-    </inheritance>
-    <inheritance id="18381">
-      <child>14614</child>
-      <parent>1028</parent>
-    </inheritance>
-    <inheritance id="18380">
-      <child>1032</child>
-      <parent>1028</parent>
-    </inheritance>
-    <dependency id="9504" label="implements">
-      <source>9503</source>
-      <target>1044</target>
-    </dependency>
-    <inheritance id="15011">
-      <child>14999</child>
-      <parent>14614</parent>
-    </inheritance>
-    <inheritance id="15012">
-      <child>1029</child>
-      <parent>14614</parent>
-    </inheritance>
-    <inheritance id="15085">
-      <child>15061</child>
-      <parent>14615</parent>
-    </inheritance>
-    <inheritance id="15086">
-      <child>1030</child>
-      <parent>14615</parent>
-    </inheritance>
-    <inheritance id="15087">
-      <child>15073</child>
-      <parent>14615</parent>
-    </inheritance>
-    <association aggregation="AGGREGATE" direction="BIDIRECTIONAL" id="11511" name="position de &gt;">
-      <role componentId="1028" name="" visibility="PRIVATE">
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18563" name="represente &lt;">
+      <role componentId="9961" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="9503" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18580" name="&gt; de la prise en passant">
+      <role componentId="9503" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
@@ -226,91 +145,176 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="15181" name="etat de ^">
-      <role componentId="9503" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18605" name="destination de &lt;">
       <role componentId="1041" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
+      <role componentId="10953" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
     </association>
-    <entity entityType="CLASS" id="10953" isAbstract="false" name="BoardPos2D" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="m_x" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="false" name="m_y" type="int" visibility="PRIVATE"/>
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="x" type="int"/>
-        <variable const="false" name="y" type="int"/>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18627" name="&gt; a deplacer">
+      <role componentId="1041" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="1028" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="AGGREGATE" direction="BIDIRECTIONAL" id="18648" name="est un tableau de">
+      <role componentId="9961" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="1028" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>64</min>
+          <max>64</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18675" name="&gt; avec qui faire le rock">
+      <role componentId="18407" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="15061" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="18736" name="possede &gt;">
+      <role componentId="10279" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="1028" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>8</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="19003" name="&gt; attaquee">
+      <role componentId="18700" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="1028" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <entity entityType="CLASS" id="15073" isAbstract="false" name="Bishop" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="15061" isAbstract="false" name="Rook" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="14999" isAbstract="false" name="Pawn" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="getPawnDirection" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="14615" isAbstract="true" name="SlidingPiece" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="true" name="checkMovePath" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="startPosition" type="BoardPos2D"/>
+        <variable const="false" name="endPosition" type="BoardPos2D"/>
+        <variable const="false" name="dx" type="int"/>
+        <variable const="false" name="dy" type="int"/>
       </method>
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="p" type="BoardPos2D"/>
+      <method isAbstract="true" isStatic="false" name="pickMoveType" returnType="Move" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="destination" type="BoardPos2D"/>
+        <variable const="false" name="dx" type="int"/>
+        <variable const="false" name="dy" type="int"/>
       </method>
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="array" type="int[]"/>
+    </entity>
+    <entity entityType="CLASS" id="14614" isAbstract="true" name="Class" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="hasMoved" type="boolean" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="1028" isAbstract="true" name="Piece" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="m_pieceColour" type="PlayerColor" visibility="PROTECTED"/>
+      <method is-constructor="true" isAbstract="true" isStatic="false" name="Piece" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="piecePosition" type="BoardPos2D"/>
+        <variable const="false" name="pieceColour" type="PlayerColor"/>
       </method>
+      <method isAbstract="true" isStatic="false" name="isPieceLegalMove" returnType="Move" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="destination" type="BoardPos2D"/>
+      </method>
+      <method isAbstract="true" isStatic="false" name="calculateLegalMoves" returnType="List&lt;Move&gt;" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="BoardPos2D"/>
+      </method>
+      <method isAbstract="true" isStatic="false" name="getPieceName" returnType="PieceType" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="setPiecePosition" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="m_piecePosition" type="BoardPos2D"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="getColor" returnType="PlayerColor" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getPosition" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getX" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="offsetBy" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="offset2D" type="int[]"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="offsetBy" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="offset2D" type="int[]"/>
-      </method>
       <method isAbstract="false" isStatic="false" name="equals" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="o" type="Object"/>
       </method>
       <method isAbstract="false" isStatic="false" name="hashCode" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="CLASS" id="10279" isAbstract="false" name="Player" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="color" type="PlayerColor" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="false" name="pawnDirection" type="int" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="false" name="playerLCastlable" type="boolean" visibility="PRIVATE"/>
-      <attribute const="false" defaultValue="" isStatic="false" name="playerRCastlable" type="boolean" visibility="PRIVATE"/>
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="AltChessPlayer" returnType="" view="DEFAULT" visibility="PACKAGE">
-        <variable const="false" name="color" type="PlayerColor"/>
-        <variable const="false" name="pawnDirection" type="int"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="resetPlayer" returnType="void" view="DEFAULT" visibility="PACKAGE"/>
-      <method isAbstract="false" isStatic="false" name="initPieceSet" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
-      <method isAbstract="false" isStatic="false" name="removePiece" returnType="void" view="DEFAULT" visibility="PACKAGE">
-        <variable const="false" name="piece" type="Piece"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="addPiece" returnType="void" view="DEFAULT" visibility="PACKAGE">
-        <variable const="false" name="piece" type="Piece"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="isPlayerLCastlable" returnType="boolean" view="DEFAULT" visibility="PACKAGE"/>
-      <method isAbstract="false" isStatic="false" name="isPlayerRCastlable" returnType="boolean" view="DEFAULT" visibility="PACKAGE"/>
-      <method isAbstract="false" isStatic="false" name="getColor" returnType="PlayerColor" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getPawnDirection" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getKing" returnType="Piece" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getPieces" returnType="ArrayList&lt;Piece&gt;" view="DEFAULT" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="1029" isAbstract="false" name="King" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CASTLING_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
     </entity>
-    <entity entityType="ENUM" id="9962" name="PlayerColor">
-      <EnumValue>WHITE</EnumValue>
-      <EnumValue>BLACK</EnumValue>
+    <entity entityType="CLASS" id="1030" isAbstract="false" name="Queen" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
     </entity>
-    <entity entityType="CLASS" id="9961" isAbstract="false" name="Board" visibility="PUBLIC">
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="AltChessBoard" returnType="" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getPieceOn" returnType="Piece" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="boardPos2D" type="BoardPos2D"/>
+    <entity entityType="CLASS" id="1032" isAbstract="false" name="Knight" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="1041" isAbstract="false" name="Move" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Move" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="pieceToMove" type="Piece"/>
+        <variable const="false" name="destination" type="BoardPos2D"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="getPieceOn" returnType="Piece" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="x" type="int"/>
-        <variable const="false" name="y" type="int"/>
+      <method isAbstract="false" isStatic="false" name="doMove" returnType="boolean" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="method" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="checkMove" returnType="boolean" view="DEFAULT" visibility="PROTECTED"/>
+      <method isAbstract="false" isStatic="false" name="rollbackMove" returnType="void" view="DEFAULT" visibility="PROTECTED"/>
+      <method isAbstract="false" isStatic="false" name="execute" returnType="void" view="DEFAULT" visibility="PROTECTED"/>
+      <method isAbstract="false" isStatic="false" name="getDestination" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="INTERFACE" id="1044" isAbstract="true" name="ChessController" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="start" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="view" type="ChessView"/>
       </method>
-      <method isAbstract="false" isStatic="false" name="setPieceOn" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="piece" type="Piece"/>
-        <variable const="false" name="boradPos2D" type="BoardPos2D"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="setPieceOn" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="piece" type="Piece"/>
-        <variable const="false" name="x" type="int"/>
-        <variable const="false" name="y" type="int"/>
+      <method isAbstract="true" isStatic="false" name="newGame" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="move" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="fromX" type="int"/>
+        <variable const="false" name="fromY" type="int"/>
+        <variable const="false" name="toX" type="int"/>
+        <variable const="false" name="toY" type="int"/>
       </method>
     </entity>
     <entity entityType="CLASS" id="9503" isAbstract="false" name="Game" visibility="PUBLIC">
@@ -341,454 +345,382 @@
       <method isAbstract="false" isStatic="false" name="getPositionEnPassant" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="removeEnPassantPawn" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="INTERFACE" id="1044" isAbstract="true" name="ChessController" visibility="PUBLIC">
-      <method isAbstract="true" isStatic="false" name="start" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="view" type="ChessView"/>
+    <entity entityType="CLASS" id="9961" isAbstract="false" name="Board" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="AltChessBoard" returnType="" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getPieceOn" returnType="Piece" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="boardPos2D" type="BoardPos2D"/>
       </method>
-      <method isAbstract="true" isStatic="false" name="newGame" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="true" isStatic="false" name="move" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="fromX" type="int"/>
-        <variable const="false" name="fromY" type="int"/>
-        <variable const="false" name="toX" type="int"/>
-        <variable const="false" name="toY" type="int"/>
+      <method isAbstract="false" isStatic="false" name="getPieceOn" returnType="Piece" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="x" type="int"/>
+        <variable const="false" name="y" type="int"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="setPieceOn" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="piece" type="Piece"/>
+        <variable const="false" name="boradPos2D" type="BoardPos2D"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="setPieceOn" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="piece" type="Piece"/>
+        <variable const="false" name="x" type="int"/>
+        <variable const="false" name="y" type="int"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="1041" isAbstract="false" name="Move" visibility="PUBLIC">
-      <method is-constructor="true" isAbstract="false" isStatic="false" name="Move" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="Game"/>
-        <variable const="false" name="pieceToMove" type="Piece"/>
-        <variable const="false" name="destination" type="BoardPos2D"/>
-      </method>
-      <method isAbstract="false" isStatic="false" name="execute" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getDestination" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC"/>
+    <entity entityType="ENUM" id="9962" name="PlayerColor">
+      <EnumValue>WHITE</EnumValue>
+      <EnumValue>BLACK</EnumValue>
     </entity>
-    <entity entityType="CLASS" id="1032" isAbstract="false" name="Knight" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
-    </entity>
-    <entity entityType="CLASS" id="1030" isAbstract="false" name="Queen" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
-    </entity>
-    <entity entityType="CLASS" id="1029" isAbstract="false" name="King" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CASTLING_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
-    </entity>
-    <entity entityType="CLASS" id="1028" isAbstract="true" name="Piece" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="m_pieceColour" type="PlayerColor" visibility="PROTECTED"/>
-      <method is-constructor="true" isAbstract="true" isStatic="false" name="Piece" returnType="" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="piecePosition" type="BoardPos2D"/>
-        <variable const="false" name="pieceColour" type="PlayerColor"/>
+    <entity entityType="CLASS" id="10279" isAbstract="false" name="Player" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="color" type="PlayerColor" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="pawnDirection" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="playerLCastlable" type="boolean" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="playerRCastlable" type="boolean" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="AltChessPlayer" returnType="" view="DEFAULT" visibility="PACKAGE">
+        <variable const="false" name="color" type="PlayerColor"/>
+        <variable const="false" name="pawnDirection" type="int"/>
       </method>
-      <method isAbstract="true" isStatic="false" name="isPieceLegalMove" returnType="Move" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="Game"/>
-        <variable const="false" name="destination" type="BoardPos2D"/>
+      <method isAbstract="false" isStatic="false" name="resetPlayer" returnType="void" view="DEFAULT" visibility="PACKAGE"/>
+      <method isAbstract="false" isStatic="false" name="initPieceSet" returnType="void" view="DEFAULT" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="removePiece" returnType="void" view="DEFAULT" visibility="PACKAGE">
+        <variable const="false" name="piece" type="Piece"/>
       </method>
-      <method isAbstract="true" isStatic="false" name="calculateLegalMoves" returnType="List&lt;Move&gt;" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="BoardPos2D"/>
+      <method isAbstract="false" isStatic="false" name="addPiece" returnType="void" view="DEFAULT" visibility="PACKAGE">
+        <variable const="false" name="piece" type="Piece"/>
       </method>
-      <method isAbstract="true" isStatic="false" name="getPieceName" returnType="PieceType" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="setPiecePosition" returnType="void" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="m_piecePosition" type="BoardPos2D"/>
-      </method>
+      <method isAbstract="false" isStatic="false" name="isPlayerLCastlable" returnType="boolean" view="DEFAULT" visibility="PACKAGE"/>
+      <method isAbstract="false" isStatic="false" name="isPlayerRCastlable" returnType="boolean" view="DEFAULT" visibility="PACKAGE"/>
       <method isAbstract="false" isStatic="false" name="getColor" returnType="PlayerColor" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="getPosition" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getPawnDirection" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getKing" returnType="Piece" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="getPieces" returnType="ArrayList&lt;Piece&gt;" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="10953" isAbstract="false" name="BoardPos2D" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="m_x" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="m_y" type="int" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="x" type="int"/>
+        <variable const="false" name="y" type="int"/>
+      </method>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="p" type="BoardPos2D"/>
+      </method>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="BoardPos2D" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="array" type="int[]"/>
+      </method>
       <method isAbstract="false" isStatic="false" name="getX" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getY" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="offsetBy" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="offset2D" type="int[]"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="offsetBy" returnType="BoardPos2D" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="offset2D" type="int[]"/>
+      </method>
       <method isAbstract="false" isStatic="false" name="equals" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="o" type="Object"/>
       </method>
       <method isAbstract="false" isStatic="false" name="hashCode" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
-    <entity entityType="CLASS" id="14614" isAbstract="true" name="Class" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="hasMoved" type="boolean" visibility="PRIVATE"/>
-    </entity>
-    <entity entityType="CLASS" id="14615" isAbstract="true" name="SlidingPiece" visibility="PUBLIC">
-      <method isAbstract="false" isStatic="true" name="checkMovePath" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
+    <entity entityType="CLASS" id="18407" isAbstract="false" name="Castling" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Castling" returnType="" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="gameState" type="Game"/>
-        <variable const="false" name="startPosition" type="BoardPos2D"/>
-        <variable const="false" name="endPosition" type="BoardPos2D"/>
-        <variable const="false" name="dx" type="int"/>
-        <variable const="false" name="dy" type="int"/>
-      </method>
-      <method isAbstract="true" isStatic="false" name="pickMoveType" returnType="Move" view="DEFAULT" visibility="PUBLIC">
-        <variable const="false" name="gameState" type="Game"/>
-        <variable const="false" name="destination" type="BoardPos2D"/>
-        <variable const="false" name="dx" type="int"/>
-        <variable const="false" name="dy" type="int"/>
+        <variable const="false" name="pieceToMove" type="Piece"/>
+        <variable const="false" name="destination" type="BoardPos2d"/>
+        <variable const="false" name="rookToCastle" type="Piece"/>
       </method>
     </entity>
-    <entity entityType="CLASS" id="14999" isAbstract="false" name="Pawn" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVES_OFFSETS" type="int[][]" visibility="PRIVATE"/>
-      <method isAbstract="false" isStatic="false" name="getPawnDirection" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="18700" isAbstract="false" name="Attack" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Attack" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="pieceToMove" type="Piece"/>
+        <variable const="false" name="destination" type="BoardPos2d"/>
+        <variable const="false" name="attackedPiece" type="Piece"/>
+      </method>
     </entity>
-    <entity entityType="CLASS" id="15061" isAbstract="false" name="Rook" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
-    </entity>
-    <entity entityType="CLASS" id="15073" isAbstract="false" name="Bishop" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="CANDIDATE_MOVE_VECTORS_OFFSETS" type="int[][]" visibility="PRIVATE"/>
+    <entity entityType="CLASS" id="18788" isAbstract="false" name="PawnJump" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="direction" type="int" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="PawnJump" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="gameState" type="Game"/>
+        <variable const="false" name="pieceToMove" type="Piece"/>
+        <variable const="false" name="destination" type="BoardPos2d"/>
+        <variable const="false" name="pawnDirection" type="int"/>
+      </method>
     </entity>
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
-    <relationView color="-12566464" relationId="15181">
+    <relationView color="-12566464" relationId="19003">
       <line>
         <point>
-          <x>471</x>
-          <y>426</y>
-        </point>
-        <point>
-          <x>471</x>
-          <y>621</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>475</x>
-        <y>527</y>
-        <w>57</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>475</x>
-        <y>430</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>475</x>
-        <y>598</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>457</x>
-        <y>430</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>457</x>
-        <y>598</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="11511">
-      <line>
-        <point>
-          <x>1461</x>
-          <y>471</y>
-        </point>
-        <point>
-          <x>1161</x>
-          <y>471</y>
-        </point>
-        <point>
-          <x>1161</x>
-          <y>671</y>
-        </point>
-        <point>
-          <x>1001</x>
-          <y>671</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>1276</x>
-        <y>450</y>
-        <w>82</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>1425</x>
-        <y>475</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>1005</x>
-        <y>675</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>1447</x>
-        <y>448</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>1005</x>
-        <y>648</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="15087">
-      <line>
-        <point>
-          <x>2581</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>2581</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>2271</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>2271</x>
-          <y>746</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="15086">
-      <line>
-        <point>
-          <x>2261</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>2261</x>
-          <y>746</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="15085">
-      <line>
-        <point>
-          <x>1961</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>1961</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>2271</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>2271</x>
-          <y>746</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="9504">
-      <line>
-        <point>
-          <x>461</x>
-          <y>191</y>
-        </point>
-        <point>
-          <x>461</x>
-          <y>135</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>464</x>
-        <y>154</y>
-        <w>75</w>
-        <h>17</h>
-      </labelAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="15011">
-      <line>
-        <point>
-          <x>1411</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>1411</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>1281</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>1281</x>
-          <y>731</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="15012">
-      <line>
-        <point>
-          <x>1161</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>1161</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>1281</x>
-          <y>781</y>
-        </point>
-        <point>
-          <x>1281</x>
-          <y>731</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="18380">
-      <line>
-        <point>
-          <x>1671</x>
-          <y>811</y>
-        </point>
-        <point>
-          <x>1671</x>
-          <y>576</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="18381">
-      <line>
-        <point>
-          <x>1281</x>
-          <y>661</y>
-        </point>
-        <point>
-          <x>1281</x>
-          <y>631</y>
-        </point>
-        <point>
-          <x>1671</x>
-          <y>631</y>
-        </point>
-        <point>
-          <x>1671</x>
-          <y>576</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="18382">
-      <line>
-        <point>
-          <x>2271</x>
-          <y>661</y>
-        </point>
-        <point>
-          <x>2271</x>
-          <y>631</y>
-        </point>
-        <point>
-          <x>1671</x>
-          <y>631</y>
-        </point>
-        <point>
-          <x>1671</x>
-          <y>576</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="18425">
-      <line>
-        <point>
-          <x>1451</x>
+          <x>1021</x>
           <y>951</y>
         </point>
         <point>
-          <x>1451</x>
-          <y>921</y>
+          <x>1021</x>
+          <y>761</y>
         </point>
         <point>
-          <x>781</x>
-          <y>921</y>
+          <x>1581</x>
+          <y>761</y>
         </point>
         <point>
-          <x>781</x>
-          <y>771</y>
-        </point>
-        <point>
-          <x>431</x>
-          <y>771</y>
-        </point>
-        <point>
-          <x>431</x>
-          <y>721</y>
+          <x>1581</x>
+          <y>576</y>
         </point>
       </line>
+      <labelAssociation>
+        <x>1029</x>
+        <y>737</y>
+        <w>69</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>1025</x>
+        <y>928</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>1585</x>
+        <y>580</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>1007</x>
+        <y>928</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>1567</x>
+        <y>580</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
     </relationView>
-    <relationView color="-12566464" relationId="18548">
+    <relationView color="-12566464" relationId="18736">
       <line>
         <point>
-          <x>651</x>
+          <x>1141</x>
+          <y>421</y>
+        </point>
+        <point>
+          <x>1461</x>
+          <y>421</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>1274</x>
+        <y>396</y>
+        <w>64</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>1145</x>
+        <y>425</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>1425</x>
+        <y>425</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>1145</x>
+        <y>398</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>1447</x>
+        <y>398</y>
+        <w>23</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18675">
+      <line>
+        <point>
+          <x>1741</x>
+          <y>971</y>
+        </point>
+        <point>
+          <x>1961</x>
+          <y>971</y>
+        </point>
+        <point>
+          <x>1961</x>
+          <y>881</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>1774</x>
+        <y>941</y>
+        <w>141</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>1745</x>
+        <y>975</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>1965</x>
+        <y>885</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>1745</x>
+        <y>948</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>1947</x>
+        <y>885</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18648">
+      <line>
+        <point>
+          <x>1161</x>
+          <y>281</y>
+        </point>
+        <point>
+          <x>1221</x>
+          <y>281</y>
+        </point>
+        <point>
+          <x>1221</x>
           <y>371</y>
         </point>
         <point>
-          <x>801</x>
+          <x>1461</x>
           <y>371</y>
         </point>
       </line>
       <labelAssociation>
-        <x>693</x>
+        <x>1285</x>
+        <y>346</y>
+        <w>110</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>1165</x>
+        <y>285</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>1425</x>
+        <y>375</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>1165</x>
+        <y>258</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>1447</x>
         <y>348</y>
-        <w>66</w>
+        <w>16</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18627">
+      <line>
+        <point>
+          <x>651</x>
+          <y>641</y>
+        </point>
+        <point>
+          <x>1181</x>
+          <y>641</y>
+        </point>
+        <point>
+          <x>1181</x>
+          <y>521</y>
+        </point>
+        <point>
+          <x>1461</x>
+          <y>521</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>1274</x>
+        <y>497</y>
+        <w>77</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>655</x>
-        <y>375</y>
+        <y>645</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>1425</x>
+        <y>525</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>655</x>
+        <y>618</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>1447</x>
+        <y>498</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18605">
+      <line>
+        <point>
+          <x>651</x>
+          <y>711</y>
+        </point>
+        <point>
+          <x>801</x>
+          <y>711</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>676</x>
+        <y>689</y>
+        <w>103</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>655</x>
+        <y>715</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <roleAssociation>
         <x>765</x>
-        <y>375</y>
+        <y>715</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>655</x>
-        <y>348</y>
+        <x>659</x>
+        <y>686</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
         <x>787</x>
-        <y>348</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="18563">
-      <line>
-        <point>
-          <x>801</x>
-          <y>211</y>
-        </point>
-        <point>
-          <x>651</x>
-          <y>211</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>688</x>
-        <y>184</y>
-        <w>81</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>765</x>
-        <y>215</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>655</x>
-        <y>215</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>787</x>
-        <y>188</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>655</x>
-        <y>188</y>
+        <y>688</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -847,235 +779,201 @@
         <h>17</h>
       </multipliciteAssociation>
     </relationView>
-    <relationView color="-12566464" relationId="18605">
+    <relationView color="-12566464" relationId="18563">
       <line>
         <point>
-          <x>651</x>
-          <y>711</y>
+          <x>801</x>
+          <y>211</y>
         </point>
         <point>
-          <x>801</x>
-          <y>711</y>
+          <x>651</x>
+          <y>211</y>
         </point>
       </line>
       <labelAssociation>
-        <x>675</x>
-        <y>689</y>
-        <w>103</w>
+        <x>688</x>
+        <y>184</y>
+        <w>81</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>765</x>
+        <y>215</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>655</x>
+        <y>215</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>787</x>
+        <y>188</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>655</x>
+        <y>188</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18548">
+      <line>
+        <point>
+          <x>651</x>
+          <y>371</y>
+        </point>
+        <point>
+          <x>801</x>
+          <y>371</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>693</x>
+        <y>348</y>
+        <w>66</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>655</x>
-        <y>715</y>
+        <y>375</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <roleAssociation>
         <x>765</x>
-        <y>715</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>655</x>
-        <y>688</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>787</x>
-        <y>688</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="18627">
-      <line>
-        <point>
-          <x>651</x>
-          <y>641</y>
-        </point>
-        <point>
-          <x>1181</x>
-          <y>641</y>
-        </point>
-        <point>
-          <x>1181</x>
-          <y>521</y>
-        </point>
-        <point>
-          <x>1461</x>
-          <y>521</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>1274</x>
-        <y>497</y>
-        <w>77</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>655</x>
-        <y>645</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>1425</x>
-        <y>525</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>655</x>
-        <y>618</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>1447</x>
-        <y>498</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="18648">
-      <line>
-        <point>
-          <x>1161</x>
-          <y>281</y>
-        </point>
-        <point>
-          <x>1221</x>
-          <y>281</y>
-        </point>
-        <point>
-          <x>1221</x>
-          <y>371</y>
-        </point>
-        <point>
-          <x>1461</x>
-          <y>371</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>1285</x>
-        <y>346</y>
-        <w>110</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>1165</x>
-        <y>285</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>1425</x>
         <y>375</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>1165</x>
-        <y>258</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>1447</x>
+        <x>655</x>
         <y>348</y>
-        <w>16</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="18675">
-      <line>
-        <point>
-          <x>1741</x>
-          <y>971</y>
-        </point>
-        <point>
-          <x>1961</x>
-          <y>971</y>
-        </point>
-        <point>
-          <x>1961</x>
-          <y>881</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>1774</x>
-        <y>941</y>
-        <w>141</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>1745</x>
-        <y>975</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>1965</x>
-        <y>885</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>1745</x>
-        <y>948</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>1947</x>
-        <y>885</y>
+        <x>787</x>
+        <y>348</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
     </relationView>
-    <relationView color="-12566464" relationId="18736">
+    <relationView color="-12566464" relationId="11511">
       <line>
-        <point>
-          <x>1141</x>
-          <y>421</y>
-        </point>
         <point>
           <x>1461</x>
-          <y>421</y>
+          <y>471</y>
+        </point>
+        <point>
+          <x>1161</x>
+          <y>471</y>
+        </point>
+        <point>
+          <x>1161</x>
+          <y>671</y>
+        </point>
+        <point>
+          <x>1001</x>
+          <y>671</y>
         </point>
       </line>
       <labelAssociation>
-        <x>1274</x>
-        <y>396</y>
-        <w>64</w>
+        <x>1276</x>
+        <y>450</y>
+        <w>82</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
-        <x>1145</x>
-        <y>425</y>
+        <x>1425</x>
+        <y>475</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <roleAssociation>
-        <x>1425</x>
-        <y>425</y>
+        <x>1005</x>
+        <y>675</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>1145</x>
-        <y>398</y>
+        <x>1447</x>
+        <y>448</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>1447</x>
-        <y>398</y>
-        <w>23</w>
+        <x>1005</x>
+        <y>648</y>
+        <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="15181">
+      <line>
+        <point>
+          <x>471</x>
+          <y>426</y>
+        </point>
+        <point>
+          <x>471</x>
+          <y>621</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>475</x>
+        <y>527</y>
+        <w>57</w>
+        <h>17</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>475</x>
+        <y>430</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>475</x>
+        <y>598</y>
+        <w>0</w>
+        <h>17</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>457</x>
+        <y>430</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>457</x>
+        <y>598</y>
+        <w>8</w>
+        <h>17</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="18978">
+      <line>
+        <point>
+          <x>281</x>
+          <y>951</y>
+        </point>
+        <point>
+          <x>281</x>
+          <y>821</y>
+        </point>
+        <point>
+          <x>431</x>
+          <y>821</y>
+        </point>
+        <point>
+          <x>431</x>
+          <y>781</y>
+        </point>
+      </line>
     </relationView>
     <relationView color="-12566464" relationId="18787">
       <line>
@@ -1093,43 +991,213 @@
         </point>
         <point>
           <x>781</x>
-          <y>771</y>
+          <y>821</y>
         </point>
         <point>
           <x>431</x>
-          <y>771</y>
+          <y>821</y>
         </point>
         <point>
           <x>431</x>
-          <y>721</y>
+          <y>781</y>
         </point>
       </line>
     </relationView>
-    <relationView color="-12566464" relationId="18978">
+    <relationView color="-12566464" relationId="18425">
       <line>
         <point>
-          <x>301</x>
+          <x>1451</x>
           <y>951</y>
         </point>
         <point>
-          <x>301</x>
-          <y>771</y>
+          <x>1451</x>
+          <y>921</y>
+        </point>
+        <point>
+          <x>781</x>
+          <y>921</y>
+        </point>
+        <point>
+          <x>781</x>
+          <y>821</y>
         </point>
         <point>
           <x>431</x>
-          <y>771</y>
+          <y>821</y>
         </point>
         <point>
           <x>431</x>
-          <y>721</y>
+          <y>781</y>
         </point>
       </line>
     </relationView>
-    <relationView color="-12566464" relationId="18989">
+    <relationView color="-12566464" relationId="18382">
+      <line>
+        <point>
+          <x>2271</x>
+          <y>661</y>
+        </point>
+        <point>
+          <x>2271</x>
+          <y>631</y>
+        </point>
+        <point>
+          <x>1671</x>
+          <y>631</y>
+        </point>
+        <point>
+          <x>1671</x>
+          <y>576</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="18381">
+      <line>
+        <point>
+          <x>1281</x>
+          <y>661</y>
+        </point>
+        <point>
+          <x>1281</x>
+          <y>631</y>
+        </point>
+        <point>
+          <x>1671</x>
+          <y>631</y>
+        </point>
+        <point>
+          <x>1671</x>
+          <y>576</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="18380">
+      <line>
+        <point>
+          <x>1671</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>1671</x>
+          <y>576</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15011">
+      <line>
+        <point>
+          <x>1411</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>1411</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>1281</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>1281</x>
+          <y>731</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15012">
+      <line>
+        <point>
+          <x>1161</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>1161</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>1281</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>1281</x>
+          <y>731</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15085">
+      <line>
+        <point>
+          <x>1961</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>1961</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>2271</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>2271</x>
+          <y>746</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15086">
+      <line>
+        <point>
+          <x>2261</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>2261</x>
+          <y>746</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="15087">
+      <line>
+        <point>
+          <x>2581</x>
+          <y>811</y>
+        </point>
+        <point>
+          <x>2581</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>2271</x>
+          <y>781</y>
+        </point>
+        <point>
+          <x>2271</x>
+          <y>746</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="9504">
+      <line>
+        <point>
+          <x>461</x>
+          <y>191</y>
+        </point>
+        <point>
+          <x>461</x>
+          <y>135</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>464</x>
+        <y>154</y>
+        <w>75</w>
+        <h>17</h>
+      </labelAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="22400">
       <line>
         <point>
           <x>871</x>
-          <y>1081</y>
+          <y>1071</y>
         </point>
         <point>
           <x>871</x>
@@ -1137,181 +1205,61 @@
         </point>
       </line>
     </relationView>
-    <relationView color="-12566464" relationId="19003">
+    <relationView color="-12566464" relationId="22413">
       <line>
         <point>
-          <x>1021</x>
-          <y>951</y>
-        </point>
-        <point>
-          <x>1021</x>
+          <x>801</x>
           <y>761</y>
         </point>
         <point>
-          <x>1581</x>
+          <x>651</x>
           <y>761</y>
-        </point>
-        <point>
-          <x>1581</x>
-          <y>576</y>
         </point>
       </line>
       <labelAssociation>
-        <x>1029</x>
-        <y>737</y>
-        <w>69</w>
+        <x>686</x>
+        <y>738</y>
+        <w>73</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
-        <x>1025</x>
-        <y>928</y>
+        <x>765</x>
+        <y>765</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <roleAssociation>
-        <x>1585</x>
-        <y>580</y>
+        <x>655</x>
+        <y>765</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>1007</x>
-        <y>928</y>
+        <x>787</x>
+        <y>738</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>1567</x>
-        <y>580</y>
+        <x>655</x>
+        <y>738</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
     </relationView>
-    <componentView color="-2079" componentID="15073" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="18788" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>2430</x>
-        <y>810</y>
-        <w>290</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="15061" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1810</x>
-        <y>810</y>
-        <w>290</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="14999" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1290</x>
-        <y>810</y>
-        <w>240</w>
+        <x>0</x>
+        <y>950</y>
+        <w>570</w>
         <h>85</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="14615" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="18700" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>1930</x>
-        <y>660</y>
-        <w>670</w>
-        <h>85</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1028" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1460</x>
-        <y>340</y>
-        <w>420</w>
-        <h>235</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1029" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1040</x>
-        <y>810</y>
-        <w>230</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1030" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>2120</x>
-        <y>810</y>
-        <w>290</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1032" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1550</x>
-        <y>810</y>
-        <w>240</w>
-        <h>70</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1041" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>210</x>
-        <y>620</y>
-        <w>440</w>
-        <h>100</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="1044" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>280</x>
-        <y>20</y>
-        <w>370</w>
-        <h>114</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="9503" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>280</x>
-        <y>190</y>
-        <w>370</w>
-        <h>235</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="9961" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>800</x>
-        <y>190</y>
-        <w>360</w>
-        <h>130</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="9962" enumValuesVisible="DEFAULT">
-      <geometry>
-        <x>670</x>
-        <y>20</y>
-        <w>150</w>
-        <h>89</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="10279" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>800</x>
-        <y>340</y>
-        <w>340</w>
-        <h>280</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="10953" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>800</x>
-        <y>660</y>
-        <w>200</w>
-        <h>220</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="14614" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>1200</x>
-        <y>660</y>
-        <w>150</w>
+        <x>590</x>
+        <y>950</y>
+        <w>560</w>
         <h>70</h>
       </geometry>
     </componentView>
@@ -1323,29 +1271,142 @@
         <h>70</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="18700" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="10953" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>590</x>
-        <y>950</y>
-        <w>560</w>
+        <x>800</x>
+        <y>660</y>
+        <w>200</w>
+        <h>220</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="10279" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>800</x>
+        <y>340</y>
+        <w>340</w>
+        <h>280</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="9962" enumValuesVisible="DEFAULT">
+      <geometry>
+        <x>670</x>
+        <y>20</y>
+        <w>150</w>
+        <h>89</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="9961" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>800</x>
+        <y>190</y>
+        <w>360</w>
+        <h>130</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="9503" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>280</x>
+        <y>190</y>
+        <w>370</w>
+        <h>235</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1044" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>280</x>
+        <y>20</y>
+        <w>370</w>
+        <h>114</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1041" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>210</x>
+        <y>620</y>
+        <w>440</w>
+        <h>160</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1032" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1550</x>
+        <y>810</y>
+        <w>240</w>
         <h>70</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="18788" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="1030" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>20</x>
-        <y>950</y>
-        <w>550</w>
+        <x>2120</x>
+        <y>810</y>
+        <w>290</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1029" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1040</x>
+        <y>810</y>
+        <w>230</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1028" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1460</x>
+        <y>340</y>
+        <w>420</w>
+        <h>235</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14614" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1200</x>
+        <y>660</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="14615" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1930</x>
+        <y>660</y>
+        <w>670</w>
         <h>85</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="18979" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="14999" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>590</x>
-        <y>1080</y>
-        <w>560</w>
+        <x>1290</x>
+        <y>810</y>
+        <w>240</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="15061" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1810</x>
+        <y>810</y>
+        <w>290</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="15073" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>2430</x>
+        <y>810</y>
+        <w>290</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="22372" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>580</x>
+        <y>1070</y>
+        <w>580</w>
         <h>70</h>
       </geometry>
     </componentView>
   </umlView>
+  <umlView grid="10" name="Game view" open="true"/>
 </classDiagram>
