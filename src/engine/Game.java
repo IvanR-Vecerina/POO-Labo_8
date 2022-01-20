@@ -64,36 +64,38 @@ public class Game implements chess.ChessController
     public boolean move(int fromX, int fromY, int toX, int toY) {
         Piece pieceToMove = board.getPieceOn(fromX, fromY);
 
-        // Checks préalables
+        // Vérifie si on a cliqué sur une case vide
         if (pieceToMove == null) {
-            view.displayMessage("ERROR: No piece moved!");
             return false;
         }
 
+        // Vérifie si la pièce qu'on veut déplacer est de la bonne couleur
         if (pieceToMove.getColor() != playerTurn) {
-            view.displayMessage("ERROR: Not this color's turn!");
             return false;
         }
 
+        // Vérifie que la case d'arrivée est une case occupable par cette pièce (vide ou avec une pièce adverse)
         if (board.getPieceOn(toX, toY) != null && pieceToMove.getColor() == board.getPieceOn(toX, toY).getColor()) {
-            view.displayMessage("ERROR: Destination already occupied by same color piece!");
             return false;
         }
 
         Move move = pieceToMove.isPieceLegalMove(this, new BoardPos2D(new int[]{toX, toY}));
 
+        // Vérifie que le move a été accepter par la pièce
         if (move == null) {
-            view.displayMessage("Error: Piece illegal move");
             return false;
         }
 
+        // Vérifie que le roi ne soit pas mis en échec par le mouvement.
         if(!move.doMove()){
-            view.displayMessage("ERROR: Discovery check");
             return false;
         }
+
         if(!(move instanceof PawnJump)){
             enPassant = null;
         }
+
+        view.displayMessage("");
 
         if(pieceToMove.getPieceName() == PieceType.PAWN){
             if((pieceToMove.getY() == 0 && pieceToMove.getColor() == PlayerColor.BLACK) ||
@@ -101,6 +103,9 @@ public class Game implements chess.ChessController
                 promotion(pieceToMove);
             }
         }
+
+        if(getCurrentPayer().canAttack(this, getOtherPlayer().getKing().getPosition()))
+            view.displayMessage("Roi " + this.getOtherPlayer().getColor() + " check");
 
         nextTurn();
 

@@ -23,8 +23,7 @@ public class Castling extends Move {
     }
 
     /**
-     * Méthode utilisée pour essayer de déplacer la pièce à son point d'arrivée. Nous sauvegardons sa position
-     * de départ au cas ou le mouvement ne respecte pas les contraintes du moves.
+     * Méthode utilisée ici pour préparer les différentes positions nécessaire pour checker si un roque est possible
      */
     @Override
     protected void tryMove() {
@@ -48,10 +47,6 @@ public class Castling extends Move {
     @Override
     protected boolean checkMove() {
 
-        /*if(!rookCanMove){
-            return false;
-        }*/
-
         if(m_rookToCastle.getX() == 7 && gameState.getCurrentPayer().isPlayerRCastlable() ||
            m_rookToCastle.getX() == 0 && gameState.getCurrentPayer().isPlayerLCastlable()){
 
@@ -68,20 +63,6 @@ public class Castling extends Move {
             }
         }
         return false;
-/*
-        if (m_rookToCastle.getX() == 7 && gameState.getCurrentPayer().isPlayerRCastlable()) {
-            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{-2, 0})).doMove();
-            rookMove = -2;
-            kingMove = 1;
-        }else if (m_rookToCastle.getX() == 0 && gameState.getCurrentPayer().isPlayerLCastlable()) {
-            rookCanMove = m_rookToCastle.isPieceLegalMove(gameState, m_rookToCastle.getPosition().offsetBy(new int[]{3, 0})).doMove();
-            rookMove = 3;
-            kingMove = -1;
-        }else{
-            return false;
-        }
-
-        return true;*/
     }
 
     /**
