@@ -1,5 +1,11 @@
 package engine.pieces;
 
+/**
+ * Classe PieceUtils, utilisée pour stocker les 8 direction de base dans lesquelles une pièce peut se déplacer
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public class PieceUtils {
     public static final int[] DL = {-1, -1};
     public static final int[] L  = {-1,  0};

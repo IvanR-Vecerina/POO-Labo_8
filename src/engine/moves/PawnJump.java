@@ -4,6 +4,12 @@ import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
+/**
+ * Classe PawnJump, qui hérite de Move. Cette classe est utilisée pour exécuter un déplacement de pion de 2 case
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class PawnJump extends Move {
     private final int direction;
 

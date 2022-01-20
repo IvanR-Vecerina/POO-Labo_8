@@ -6,6 +6,13 @@ import engine.Game;
 import engine.moves.Attack;
 import engine.moves.Move;
 
+/**
+ * Classe abstraite SlidingPiece, qui hérite de la classe Piece. Cette classe ajoute une sauvegarde permettant de
+ * savoir si la pièce a déjà été déplacée ou non (pour le roque et le déplacement de 2 du pion)
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public abstract class SlidingPiece extends Piece{
 
     /**

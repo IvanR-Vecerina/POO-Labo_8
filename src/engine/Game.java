@@ -7,6 +7,14 @@ import engine.moves.Move;
 import engine.moves.PawnJump;
 import engine.pieces.*;
 
+/**
+ * Classe Game, qui implémente l'interface ChessController. Contient la gestion du jeu, l'appel aux différentes pièces,
+ * les méthodes de déplacement des pièces, de suppression des pièces, d'affichage des pièces. Gère la promotion et
+ * la suppression de pièce lors d'une prise en passant.
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class Game implements chess.ChessController
 {
     // board
@@ -17,6 +25,8 @@ public class Game implements chess.ChessController
 
     // turn
     private PlayerColor playerTurn;
+
+    boolean testCeck = false;
 
     private final Promotion[] listePromotion =
             {
@@ -88,6 +98,9 @@ public class Game implements chess.ChessController
 
         // Vérifie que le roi ne soit pas mis en échec par le mouvement.
         if(!move.doMove()){
+            if(testCeck){
+                view.displayMessage("Roi " + this.getCurrentPayer().getColor() + " check");
+            }
             return false;
         }
 
@@ -95,7 +108,10 @@ public class Game implements chess.ChessController
             enPassant = null;
         }
 
-        view.displayMessage("");
+        if(testCeck) {
+            testCeck = false;
+            view.displayMessage("");
+        }
 
         if(pieceToMove.getPieceName() == PieceType.PAWN){
             if((pieceToMove.getY() == 0 && pieceToMove.getColor() == PlayerColor.BLACK) ||
@@ -104,8 +120,10 @@ public class Game implements chess.ChessController
             }
         }
 
-        if(getCurrentPayer().canAttack(this, getOtherPlayer().getKing().getPosition()))
+        if(getCurrentPayer().canAttack(this, getOtherPlayer().getKing().getPosition())) {
+            testCeck = true;
             view.displayMessage("Roi " + this.getOtherPlayer().getColor() + " check");
+        }
 
         nextTurn();
 

@@ -6,6 +6,13 @@ import engine.pieces.*;
 
 import java.util.ArrayList;
 
+/**
+ * Classe Player, cette classe met en place tout un nombre de méthode afin de gérer les pièce d'une même couleur,
+ * de leurs créations à leurs suppression.
+ *
+ * @author Ivan Vecerina
+ * @author (Thibault Seem)
+ */
 public class Player {
 
     private final PlayerColor color;
@@ -72,7 +79,7 @@ public class Player {
      * Ajoute une pièce à la liste de pièce du joueur
      * @param piece pièce à ajouter
      */
-    void addPiece(Piece piece) {
+    public void addPiece(Piece piece) {
         this.pieces.add(piece);
     }
 

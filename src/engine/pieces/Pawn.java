@@ -7,7 +7,13 @@ import engine.BoardPos2D;
 import engine.moves.*;
 
 import java.util.List;
-
+/**
+ * Classe Pawn, qui hérite de la classe MoveTrackedPiece. Cette classe permet la représentation d'un pion sur le jeu.
+ * Elle permet également de tester si le mouvement demandé correspond à un mouvement autorisé par le pion.
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public class Pawn extends MoveTrackedPiece {
     //private final int pawnDirection;
 

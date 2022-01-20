@@ -8,6 +8,13 @@ import engine.pieces.MoveTrackedPiece;
 import engine.pieces.Pawn;
 import engine.pieces.Piece;
 
+/**
+ * Classe Move, permettant de tester si le movement accepté par la pièce ne met pas son roi en échec, puis effectue
+ * le déplacement de la pièce.
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class Move {
     protected final Game gameState;
     protected final Piece pieceToMove;

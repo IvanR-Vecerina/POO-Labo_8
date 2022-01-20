@@ -10,6 +10,13 @@ import engine.moves.Move;
 
 import java.util.List;
 
+/**
+ * Classe King, qui hérite de la classe MoveTrackedPiece. Cette classe permet la représentation d'un roi sur le jeu.
+ * Elle permet également de tester si le mouvement demandé correspond à un mouvement autorisé par le roi.
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public class King extends MoveTrackedPiece {
 
     private final static int[][] CASTLING_MOVES_OFFSETS = {{-2, 0}, {2, 0}};

@@ -9,6 +9,14 @@ import engine.moves.Move;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Classe abstraite Piece, cette classe implémente les méthode de base d'une pièce,
+ * comme la méthode abstraite isPieceLegalMove, qui doit permettre de savoir si le mouvement tenté est valide. C'est
+ * également ici qu'est implémenté la méthode permettant de set la position d'une pièce ou d'en connaitre la couleur.
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public abstract class Piece {
     protected BoardPos2D m_piecePosition;
     protected final PlayerColor m_pieceColour;

@@ -2,6 +2,12 @@ package engine;
 
 import java.util.Objects;
 
+/**
+ * Classe BoardPos2D, classe utilisée pour stocker une position x,y sur le board, et d'y appliquer un offset, toujours
+ * en x,y. Permet également de récupérer les position X ou Y séparément
+ *
+ * @author Ivan Vecerina
+ */
 public class BoardPos2D {
     private final int m_x;
     private final int m_y;

@@ -9,6 +9,13 @@ import engine.moves.Move;
 
 import java.util.List;
 
+/**
+ * Classe Knight, qui hérite de la classe Piece. Cette classe permet la représentation d'un cavalier sur le jeu.
+ * Elle permet également de tester si le mouvement demandé correspond à un mouvement autorisé par le cavalier.
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public class Knight extends Piece{
 
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
