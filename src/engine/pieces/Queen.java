@@ -9,7 +9,13 @@ import engine.moves.Move;
 import java.util.List;
 
 import static engine.pieces.PieceUtils.*;
-
+/**
+ * Classe Queen, qui hérite de la classe SlidingPiece. Cette classe permet la représentation d'une dame sur le jeu.
+ * Elle permet également de tester si le mouvement demandé correspond à un mouvement autorisé par la dame.
+ *
+ * @author Ivan Vecerina
+ * @author (Alice Grunder)
+ */
 public class Queen extends SlidingPiece{
 
     private final static int[][] CANDIDATE_MOVE_VECTORS_OFFSETS = {U, D, L, R, DR, DL, UR, UL};

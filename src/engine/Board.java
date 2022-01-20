@@ -2,6 +2,13 @@ package engine;
 
 import engine.pieces.Piece;
 
+/**
+ * Classe Board, cette classe stocke un tableau de 8x8 représentant un plateau d'échecs. cela permet de vérifier si une
+ * case est occupée ou non.
+ *
+ * @author Ivan Vecerina
+ * @author (Thibault Seem)
+ */
 public class Board {
     private final Piece[][] board;
 

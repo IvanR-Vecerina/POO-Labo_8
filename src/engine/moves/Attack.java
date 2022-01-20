@@ -4,8 +4,16 @@ import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
+/**
+ * Classe Attack, qui hérite de Move. Cette classe est utilisée lorsqu'une pièce en mange une autre. Elle permet de
+ * tester si le mouvement ne met pas le roi en échec, puis de supprimer la pièce du plateau et du joueur.
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class Attack extends Move{
     Piece m_attackedPiece;
+    Piece copiPiece;
 
     /**
      * Constructeur d'un move PawnJump
@@ -18,6 +26,17 @@ public class Attack extends Move{
         super(gameState, pieceToMove, destination);
         m_attackedPiece = attackedPiece;
     }
+    /**
+     * Méthode utilisée pour essayer de déplacer la pièce à son point d'arrivée. Nous sauvegardons sa position
+     * de départ au cas ou le mouvement ne respecte pas les contraintes du moves.
+     */
+    protected void tryMove(){
+
+        copiPiece = m_attackedPiece;
+        gameState.killPiece(m_attackedPiece);
+
+        super.tryMove();
+    }
 
     /**
      * Méthode utilisée pour remettre le board dans l'état précédent les test de vérification.
@@ -27,6 +46,7 @@ public class Attack extends Move{
     protected void rollbackMove() {
         super.rollbackMove();
         gameState.movePieceBoard(m_attackedPiece, m_attackedPiece.getPosition());
+        gameState.getCurrentPayer().addPiece(copiPiece);
     }
 
     /**
@@ -35,6 +55,7 @@ public class Attack extends Move{
      */
     @Override
     public void execute() {
+        gameState.getCurrentPayer().addPiece(copiPiece);
         gameState.killPiece(m_attackedPiece);
         super.execute();
     }

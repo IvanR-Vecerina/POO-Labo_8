@@ -2,6 +2,13 @@ package engine;
 
 import chess.ChessView;
 
+/**
+ * Classe Promotion, classe permettant implémenter ChessView.UserChoice afin de pouvoir afficher des propositions lors
+ * d'une demande de promotion
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class Promotion implements ChessView.UserChoice {
     private final String name;
 

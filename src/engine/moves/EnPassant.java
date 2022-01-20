@@ -4,6 +4,13 @@ import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
+/**
+ * Classe EnPassant, qui hérite de la classe Attack. Cette classe effectue une prise en passant, tout en vérifiant
+ * qu'elle ne mette pas son roi en danger.
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class EnPassant extends Attack {
 
     /**

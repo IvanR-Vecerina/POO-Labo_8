@@ -4,6 +4,14 @@ import engine.Game;
 import engine.BoardPos2D;
 import engine.pieces.Piece;
 
+/**
+ * Classe Castling, qui hérite de Move. Cette classe est utilisée pour effectuer un roque, qu'il soit petit ou grand.
+ * Elle vérifie qu'aucune case sur laquelle se déplace le roi n'est mise en échec et que ni la tour, ni le roi n'ai
+ * encore bougé.
+ *
+ * @author Ivan Vecerina
+ * @author Thibault Seem
+ */
 public class Castling extends Move {
     Piece m_rookToCastle;
     boolean rookCanMove;
