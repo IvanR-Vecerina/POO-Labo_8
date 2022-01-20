@@ -80,7 +80,7 @@ public class Player {
      * Méthode utilisée pour savoir si le joueur peut faire un grand rock
      * @return true si le joueur peut faire un grand rock, false sinon
      */
-    boolean isPlayerLCastlable() {
+    public boolean isPlayerLCastlable() {
         return playerLCastlable;
     }
 
@@ -88,7 +88,7 @@ public class Player {
      * Méthode utilisée pour savoir si le joueur peut faire un petit rock
      * @return true si le joueur peut faire un petit rock, false sinon
      */
-    boolean isPlayerRCastlable() {
+    public boolean isPlayerRCastlable() {
         return playerRCastlable;
     }
 
@@ -122,5 +122,35 @@ public class Player {
      */
     public ArrayList<Piece> getPieces() {
         return pieces;
+    }
+
+    /**
+     * Enlève la possibilité de faire un roque à droite
+     */
+    public void removeCastlelingL(){
+        playerLCastlable = false;
+    }
+
+    /**
+     * Enlève la possibilité de faire un roque à gauche
+     */
+    public void removeCastlelingR(){
+        playerRCastlable = false;
+    }
+
+    /**
+     * Méthode permettant de savoir si une pièce du joueur peut attaquer une case particulière
+     * @param gameState etat actuel du jeu
+     * @param posAttacked position dont on veut test l'ataquabilité
+     * @return retourne true si la case est attaquable,
+     *         retourne false sinon
+     */
+    public boolean canAttack(Game gameState, BoardPos2D posAttacked){
+        for(Piece piece : pieces){
+            if(piece.isPieceLegalMove(gameState, posAttacked) != null){
+                return true;
+            }
+        }
+        return false;
     }
 }

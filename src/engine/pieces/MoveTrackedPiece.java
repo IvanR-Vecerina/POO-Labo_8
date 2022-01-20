@@ -15,4 +15,11 @@ public abstract class MoveTrackedPiece extends Piece{
         super(piecePosition, pieceColour);
         hasMoved = false;
     }
+
+    /**
+     * Méthode permettant de changer l'attribut indiquand si la pièce a bougé pour dire qu'elle a bougé.
+     */
+    public void hasMoved(){
+        hasMoved = true;
+    }
 }

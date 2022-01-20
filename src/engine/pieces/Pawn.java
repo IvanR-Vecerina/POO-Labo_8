@@ -9,7 +9,7 @@ import engine.moves.*;
 import java.util.List;
 
 public class Pawn extends MoveTrackedPiece {
-    private final int pawnDirection;
+    //private final int pawnDirection;
 
     private final static int[][] CANDIDATE_MOVES_OFFSETS = {
             {-1, 1},
@@ -25,7 +25,7 @@ public class Pawn extends MoveTrackedPiece {
      */
     public Pawn(final BoardPos2D piecePosition, final PlayerColor pieceColour) {
         super(piecePosition, pieceColour);
-        pawnDirection = pieceColour == PlayerColor.WHITE ? 1 : -1;
+        //pawnDirection = pieceColour == PlayerColor.WHITE ? 1 : -1;
     }
 
     /**
@@ -41,6 +41,7 @@ public class Pawn extends MoveTrackedPiece {
      */
     @Override
     public Move isPieceLegalMove(Game gameState, BoardPos2D destination) {
+        int pawnDirection = gameState.getCurrentPayer().getPawnDirection();
         Piece pieceOnDestination = gameState.getPieceOn(destination);
 
         //Test si c'est un déplacement normal
@@ -51,7 +52,8 @@ public class Pawn extends MoveTrackedPiece {
         //Test si c'est un premier déplacement de 2
         if (!hasMoved &&
             destination.equals(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2], pawnDirection)) &&
-            gameState.getPieceOn(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)) == null)
+            gameState.getPieceOn(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[1], pawnDirection)) == null &&
+            gameState.getPieceOn(m_piecePosition.offsetBy(CANDIDATE_MOVES_OFFSETS[2], pawnDirection)) == null)
             return new PawnJump(gameState, this, destination, pawnDirection);
 
         //Test si c'est une attaque, et si oui, s'il s'agit d'une attaque normale ou d'une tentative de prise en passant
@@ -77,12 +79,5 @@ public class Pawn extends MoveTrackedPiece {
         return PieceType.PAWN;
     }
 
-    /**
-     * Méthode pour récupérer le sens de déplacement du pion
-     * @return un entier valant 1 ou -1 selon le sens de déplacement
-     */
-    public int getPawnDirection() {
-        return pawnDirection;
-    }
 
 }

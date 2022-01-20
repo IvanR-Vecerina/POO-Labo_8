@@ -4,6 +4,7 @@ import chess.ChessView;
 import chess.PieceType;
 import chess.PlayerColor;
 import engine.moves.Move;
+import engine.moves.PawnJump;
 import engine.pieces.*;
 
 public class Game implements chess.ChessController
@@ -90,7 +91,9 @@ public class Game implements chess.ChessController
             view.displayMessage("ERROR: Discovery check");
             return false;
         }
-
+        if(!(move instanceof PawnJump)){
+            enPassant = null;
+        }
 
         if(pieceToMove.getPieceName() == PieceType.PAWN){
             if((pieceToMove.getY() == 0 && pieceToMove.getColor() == PlayerColor.BLACK) ||
@@ -98,8 +101,6 @@ public class Game implements chess.ChessController
                 promotion(pieceToMove);
             }
         }
-
-
 
         nextTurn();
 
@@ -180,8 +181,8 @@ public class Game implements chess.ChessController
 
     /**
      * Méthode utilisée pour déplacer une pièce d'un point à un autre
-     * @param from Position de départ de la pièce
-     * @param to Position d'arrivée de la pièce
+     * @param to pièce contenant sa position d'arrivée sur le board
+     * @param from position d'ou est partie la pièce
      */
     public void movePiece(Piece to, BoardPos2D from) {
 
@@ -280,17 +281,14 @@ public class Game implements chess.ChessController
 
     }
 
+    /**
+     * Méthode utilisée pour placer une pièce sur le board à travec Game
+     * @param pieceToMove pièce que l'on souhaite placer sur le board
+     * @param destination position ou l'on souhaite poser la pièce
+     */
     public void movePieceBoard(Piece pieceToMove, BoardPos2D destination){
         board.setPieceOn(pieceToMove, destination);
-        //board.setPieceOn(null, pieceToMove.getPosition());
     }
 
-    public boolean isChecking(Game board){
-        for(Piece piece : getOtherPlayer().getPieces()){
-            if(piece.isPieceLegalMove(board, getCurrentPayer().getKing().getPosition()) != null){
-                return true;
-            }
-        }
-        return false;
-    }
+
 }
