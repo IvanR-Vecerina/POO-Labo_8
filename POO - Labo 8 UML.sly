@@ -342,7 +342,7 @@
       <method isAbstract="false" isStatic="false" name="getPawnDirection" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getKing" returnType="Piece" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="getPieces" returnType="ArrayList&lt;Piece&gt;" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="method" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="false" isStatic="false" name="removeCastlelingL" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="removeCastlelingR" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="false" isStatic="false" name="canAttack" returnType="boolean" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="gameState" type="Game"/>
@@ -493,7 +493,6 @@
         <variable const="false" name="PieceName" type="int"/>
       </method>
       <method isAbstract="false" isStatic="false" name="toString" returnType="String" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="false" isStatic="false" name="textValue" returnType="String" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
@@ -535,7 +534,7 @@
       <multipliciteAssociation>
         <x>655</x>
         <y>738</y>
-        <w>8</w>
+        <w>21</w>
         <h>17</h>
       </multipliciteAssociation>
     </relationView>
@@ -577,7 +576,7 @@
       <multipliciteAssociation>
         <x>457</x>
         <y>598</y>
-        <w>8</w>
+        <w>21</w>
         <h>17</h>
       </multipliciteAssociation>
     </relationView>
@@ -589,12 +588,12 @@
         </point>
         <point>
           <x>801</x>
-          <y>371</y>
+          <y>341</y>
         </point>
       </line>
       <labelAssociation>
         <x>693</x>
-        <y>348</y>
+        <y>333</y>
         <w>66</w>
         <h>17</h>
       </labelAssociation>
@@ -606,7 +605,7 @@
       </roleAssociation>
       <roleAssociation>
         <x>765</x>
-        <y>375</y>
+        <y>345</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -618,7 +617,7 @@
       </multipliciteAssociation>
       <multipliciteAssociation>
         <x>787</x>
-        <y>348</y>
+        <y>318</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -627,7 +626,7 @@
       <line>
         <point>
           <x>801</x>
-          <y>211</y>
+          <y>181</y>
         </point>
         <point>
           <x>651</x>
@@ -636,13 +635,13 @@
       </line>
       <labelAssociation>
         <x>688</x>
-        <y>184</y>
+        <y>169</y>
         <w>81</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>765</x>
-        <y>215</y>
+        <y>185</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -654,7 +653,7 @@
       </roleAssociation>
       <multipliciteAssociation>
         <x>787</x>
-        <y>188</y>
+        <y>158</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -751,7 +750,7 @@
       <multipliciteAssociation>
         <x>659</x>
         <y>686</y>
-        <w>8</w>
+        <w>21</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
@@ -801,7 +800,7 @@
       <multipliciteAssociation>
         <x>655</x>
         <y>618</y>
-        <w>8</w>
+        <w>21</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
@@ -815,7 +814,7 @@
       <line>
         <point>
           <x>1161</x>
-          <y>281</y>
+          <y>251</y>
         </point>
         <point>
           <x>1221</x>
@@ -838,7 +837,7 @@
       </labelAssociation>
       <roleAssociation>
         <x>1165</x>
-        <y>285</y>
+        <y>255</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -850,7 +849,7 @@
       </roleAssociation>
       <multipliciteAssociation>
         <x>1165</x>
-        <y>258</y>
+        <y>228</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -911,7 +910,7 @@
       <line>
         <point>
           <x>1141</x>
-          <y>421</y>
+          <y>391</y>
         </point>
         <point>
           <x>1461</x>
@@ -920,13 +919,13 @@
       </line>
       <labelAssociation>
         <x>1274</x>
-        <y>396</y>
+        <y>381</y>
         <w>64</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>1145</x>
-        <y>425</y>
+        <y>395</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -938,7 +937,7 @@
       </roleAssociation>
       <multipliciteAssociation>
         <x>1145</x>
-        <y>398</y>
+        <y>368</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -989,7 +988,7 @@
       <multipliciteAssociation>
         <x>1007</x>
         <y>928</y>
-        <w>8</w>
+        <w>21</w>
         <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
@@ -1253,7 +1252,7 @@
       <line>
         <point>
           <x>81</x>
-          <y>306</y>
+          <y>291</y>
         </point>
         <point>
           <x>81</x>
@@ -1272,7 +1271,7 @@
       </labelAssociation>
       <roleAssociation>
         <x>85</x>
-        <y>310</y>
+        <y>295</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -1284,7 +1283,7 @@
       </roleAssociation>
       <multipliciteAssociation>
         <x>67</x>
-        <y>310</y>
+        <y>295</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -1369,32 +1368,32 @@
       <labelAssociation>
         <x>1550</x>
         <y>768</y>
-        <w>50</w>
-        <h>30</h>
+        <w>66</w>
+        <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>1475</x>
         <y>915</y>
-        <w>50</w>
-        <h>30</h>
+        <w>0</w>
+        <h>17</h>
       </roleAssociation>
       <roleAssociation>
         <x>1625</x>
         <y>580</y>
-        <w>50</w>
-        <h>30</h>
+        <w>0</w>
+        <h>17</h>
       </roleAssociation>
       <multipliciteAssociation>
         <x>1415</x>
         <y>915</y>
-        <w>50</w>
-        <h>30</h>
+        <w>23</w>
+        <h>17</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
         <x>1565</x>
         <y>580</y>
-        <w>50</w>
-        <h>30</h>
+        <w>8</w>
+        <h>17</h>
       </multipliciteAssociation>
     </relationView>
     <componentView color="-2079" componentID="22435" displayAttributes="true" displayDefault="true" displayMethods="true">
@@ -1402,7 +1401,7 @@
         <x>50</x>
         <y>190</y>
         <w>190</w>
-        <h>115</h>
+        <h>100</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="22372" displayAttributes="true" displayDefault="true" displayMethods="true">
@@ -1504,7 +1503,7 @@
     <componentView color="-2079" componentID="9961" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
         <x>800</x>
-        <y>190</y>
+        <y>160</y>
         <w>360</w>
         <h>130</h>
       </geometry>
@@ -1520,7 +1519,7 @@
     <componentView color="-2079" componentID="10279" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
         <x>800</x>
-        <y>340</y>
+        <y>310</y>
         <w>340</w>
         <h>325</h>
       </geometry>
@@ -1597,7 +1596,7 @@
       <line>
         <point>
           <x>161</x>
-          <y>306</y>
+          <y>291</y>
         </point>
         <point>
           <x>161</x>
@@ -1616,7 +1615,7 @@
       </labelAssociation>
       <roleAssociation>
         <x>165</x>
-        <y>310</y>
+        <y>295</y>
         <w>0</w>
         <h>17</h>
       </roleAssociation>
@@ -1628,7 +1627,7 @@
       </roleAssociation>
       <multipliciteAssociation>
         <x>147</x>
-        <y>310</y>
+        <y>295</y>
         <w>8</w>
         <h>17</h>
       </multipliciteAssociation>
@@ -2126,7 +2125,7 @@
         <x>70</x>
         <y>190</y>
         <w>190</w>
-        <h>115</h>
+        <h>100</h>
       </geometry>
     </componentView>
     <componentView color="-2079" componentID="9962" enumValuesVisible="DEFAULT">
